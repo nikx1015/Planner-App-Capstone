@@ -1,24 +1,24 @@
-import { Route, Redirect } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import React, { Component } from "react"
 import Plans from './components/plans/Plans'
-import PlanEdit from './components/plans/PlanEdit'
-import PlanForm from './components/plans/PlanForm'
-import PlanDetail from './components/plans/PlanDetails'
+// import PlanEdit from './components/plans/PlanEdit'
+// import PlanForm from './components/plans/PlanForm'
+// import PlanDetail from './components/plans/PlanDetails'
 import Notes from './components/notes/Notes'
-import NoteEdit from './components/notes/NotesEdit'
-import NoteForm from './components/notes/NotesForm'
-import NoteDetails from './components/notes/NoteDetails'
+// import NoteEdit from './components/notes/NotesEdit'
+// import NoteForm from './components/notes/NotesForm'
+// import NoteDetails from './components/notes/NoteDetails'
 import Lists from './components/lists/List'
-import ListEdit from './components/lists/ListEdit'
-import ListForm from './components/lists/ListForm'
-import ListDetails from './components/lists/ListDetails'
-import Calendar from './components/calendar/Calendar'
-import PlanManager from './modules/PlanManager'
-import ListManager from './modules/ListManager'
-import NotesManager from './modules/NotesManager'
-import UserManager from './modules/UserManager'
+// import ListEdit from './components/lists/ListEdit'
+// import ListForm from './components/lists/ListForm'
+// import ListDetails from './components/lists/ListDetails'
+// import Calendar from './components/calendar/Calendar'
+// import PlanManager from './modules/PlanManager'
+// import ListManager from './modules/ListManager'
+// import NotesManager from './modules/NotesManager'
+// import UserManager from './modules/UserManager'
 import Callback from './components/authentication/Callback'
-import Auth0Client from "./authentication/Auth";
+import Auth0Client from './components/authentication/Auth'
 
 class ApplicationViews extends Component {
 
@@ -37,10 +37,10 @@ class ApplicationViews extends Component {
                 <Route exact path="/" render={(props) => {
                     return <Plans {...props} plans={this.state.plans} />
                 }} />
-                <Route exact path="/plans/new" render={(props) => {
+                {/* <Route exact path="/plans/new" render={(props) => {
                     return <PlanForm {...props} plans={this.state.plans} />
-                }} />
-                <Route
+                }} /> */}
+                {/* <Route
                     exact
                     path="/plans"
                     render={props => {
@@ -51,7 +51,7 @@ class ApplicationViews extends Component {
                             return null;
                         }
                     }}
-                />
+                /> */}
                    <Route
                     exact
                     path="/lists"
@@ -64,7 +64,7 @@ class ApplicationViews extends Component {
                         }
                     }}
                 />
-                   <Route
+                   {/* <Route
                     exact
                     path="/lists/new"
                     render={props => {
@@ -75,7 +75,7 @@ class ApplicationViews extends Component {
                             return null;
                         }
                     }}
-                />
+                /> */}
                        <Route
                     exact
                     path="/notes"
@@ -88,7 +88,7 @@ class ApplicationViews extends Component {
                         }
                     }}
                 />
-                       <Route
+                       {/* <Route
                     exact
                     path="/calendar"
                     render={props => {
@@ -99,7 +99,7 @@ class ApplicationViews extends Component {
                             return null;
                         }
                     }}
-                />
+                /> */}
             </div>
         )
     }
