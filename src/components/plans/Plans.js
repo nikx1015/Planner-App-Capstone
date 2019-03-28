@@ -5,7 +5,7 @@ class Plans extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="planButton">
+                <div className="plansButton">
                     <button type="button"
                         className="btn btn-success"
                         onClick={() => {
