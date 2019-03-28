@@ -1,13 +1,8 @@
 {
-  "users": [
-    {
-      "aud": "auth0|5c9d084e64fce41148736cfe",
-      "name": "b",
-      "id": 1
-    }
-  ],
-  "lists": [],
-  "listItems": [],
-  "notes": [],
-  "plans": []
+    "users":[],
+    "lists":[],
+    "listItems":[],
+    "notes":[],
+    "plans":[]
+
 }
