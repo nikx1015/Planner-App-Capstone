@@ -13,28 +13,10 @@ class NavBar extends Component {
  render() {
    return (
      <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
-       <Link className="navbar-brand" to="/">
+       {/* <Link className="navbar-brand" to="/">
          Planner
-       </Link>
-       {!auth0Client.isAuthenticated() ? (
-         <button className="btn btn-success" onClick={auth0Client.signIn}>
-           Sign In
-         </button>
-       ) : (
-         <React.Fragment>
-           <div>
-             <label className="mr-2 text-blue">
-               {auth0Client.getProfile().name}
-             </label>
-             <button
-               className="btn btn-danger"
-               onClick={() => {
-                 this.signOut();
-               }}
-             >
-               Sign Out
-             </button>
-           </div>
+       </Link> */}
+
            <ul className="nav nav-pills">
              <li className="nav-item">
                <Link className="nav-link" to="/">
@@ -57,6 +39,25 @@ class NavBar extends Component {
                </Link>
              </li>
            </ul>
+           {!auth0Client.isAuthenticated() ? (
+         <button className="btn btn-success" onClick={auth0Client.signIn}>
+           Sign In
+         </button>
+       ) : (
+         <React.Fragment>
+           <div>
+             <label className="mr-2 text-blue">
+               {auth0Client.getProfile().name}
+             </label>
+             <button
+               className="btn btn-danger"
+               onClick={() => {
+                 this.signOut();
+               }}
+             >
+               Sign Out
+             </button>
+           </div>
          </React.Fragment>
        )}
      </nav>

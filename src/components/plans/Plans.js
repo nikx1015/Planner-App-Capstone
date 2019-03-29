@@ -1,37 +1,43 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import './Plans.css'
 
 class Plans extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="plansButton">
-                    <button type="button"
-                        className="btn btn-success"
-                        onClick={() => {
-                            this.props.history.push("/plans/new")
-                        }
-                        }>
-                        Add New Plan
-                    </button>
-                </div>
                 <section className="plans">
+                    <div className="plansButton">
+
+                        <Button variant="outline-primary" type="submit"
+                            onClick={() => {
+                                this.props.history.push("/plans/new")
+                            }
+                            }>
+                            Add New Plan
+                    </Button>
+
+                    </div>
                     {
 
-                        this.props.plans.sort((a, b) => a.date > b.date ? 1 : -1).map(plans=>
 
-                            <div key={plans.id} className="plans-card">
+                        this.props.plans.sort((a, b) => a.date > b.date ? 1 : -1).map(plan =>
+
+                            <div key={plan.id} className="plans-card">
                                 <div className="plans-card-body">
                                     <h5 className="plans-card-title">
-                                        {plans.name}
+                                        {plan.name}
                                         <br />
-                                        {plans.date}
+                                        {plan.date}
 
-                                        <Link className="nav-link" to={`/plans/${plans.id}`}>Details</Link>
+                                        <Link className="nav-link" to={`/plans/${plan.id}`}>Details</Link>
+
                                     </h5>
                                 </div>
                             </div>
                         )}
+
                 </section>
             </React.Fragment>
         );
