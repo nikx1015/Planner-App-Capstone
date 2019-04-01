@@ -90,35 +90,3 @@ export default class PlanForm extends Component {
     }
   }
 
-
-//     render() {
-//       return (
-//         <React.Fragment>
-// <Form className="planForm">
-// <div className="formGroup">
-//   <Form.Group controlId="formBasicPlan">
-//     <Form.Label>Name of Plan</Form.Label>
-//     <Form.Control type="text" placeholder="Enter Activity Name" />
-//   </Form.Group>
-//   </div>
-//   <div className="formGroup">
-//   <Form.Group controlId="formBasicDescription">
-//     <Form.Label>description</Form.Label>
-//     <Form.Control type="text" placeholder="Description" />
-//   </Form.Group>
-//   </div>
-//   <div className="formGroup">
-//   <Form.Group controlId="formDate">
-//     <Form.Check type="date" label="Date" />
-//   </Form.Group>
-//   </div>
-//   <Button variant="primary" type="submit"
-//   onClick={this.constructPlan}
-//   className="btn btn-primary">
-//     Submit
-//   </Button>
-// </Form>
-// </React.Fragment>
-// );
-//   }
-// }
