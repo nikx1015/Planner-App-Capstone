@@ -1,8 +1,35 @@
 {
-    "users":[],
-    "lists":[],
-    "listItems":[],
-    "notes":[],
-    "plans":[]
-
+  "users": [
+    {
+      "aud": "auth0|5c9d084e64fce41148736cfe",
+      "name": "b",
+      "id": 1
+    },
+    {
+      "aud": "auth0|5ca21acbfac61310d7e18bdb",
+      "name": "c",
+      "id": 2
+    }
+  ],
+  "lists": [
+    {
+      "name": "I'm a list",
+      "description": "New list",
+      "dueDate": "",
+      "complete": false,
+      "userId": "2",
+      "id": 3
+    }
+  ],
+  "listItems": [],
+  "notes": [],
+  "plans": [
+    {
+      "id": 1,
+      "name": "A plan",
+      "date": "",
+      "description": "I'm a plan",
+      "userId": 1
+    }
+  ]
 }
