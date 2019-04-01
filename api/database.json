@@ -24,19 +24,18 @@
   "listItems": [],
   "notes": [
     {
+      "id": 1,
       "title": "I'm a note",
-      "description": "Note",
-      "date": "2019-12-31",
-      "id": 1
+      "description": "Note!",
+      "date": "2019-12-31"
     }
   ],
   "plans": [
     {
       "id": 1,
       "name": "A plan",
-      "date": "",
-      "description": "I'm a plan",
-      "userId": 1
+      "description": "I'm a plan!",
+      "date": "2019-12-31"
     }
   ]
 }
