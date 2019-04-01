@@ -37,7 +37,6 @@ export default class ListForm extends Component {
             // Create the task and redirect user to task list
 
             this.props.addList(list)
-            console.log(this.props)
                 .then(() => this.props.history.push("/lists"));
         }
     };

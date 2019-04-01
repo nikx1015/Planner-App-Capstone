@@ -29,7 +29,7 @@ class ApplicationViews extends Component {
         notes: [],
         plans: []
     }
-    addPlan = (PlanObject) =>
+    postPlan = (PlanObject) =>
         PlanManager.postPlan(PlanObject)
             .then(() => PlanManager.getAll()).then(plans =>
                 this.setState({
@@ -116,7 +116,7 @@ class ApplicationViews extends Component {
                     return <Plans {...props} plans={this.state.plans} />
                 }} /> */}
                     <Route exact path="/plans/new" render={(props) => {
-                        return <PlanForm {...props} addPlan={this.state.addPlan} plans={this.state.plans} />
+                        return <PlanForm {...props} postPlan={this.postPlan} plans={this.state.plans} />
                     }} />
                     <Route
                         exact
@@ -150,7 +150,7 @@ class ApplicationViews extends Component {
                         exact
                         path="/lists/new"
                         render={props => {
-                            return <ListForm {...props} addList={this.state.addList} lists={this.state.lists} />;
+                            return <ListForm {...props} addList={this.addList} lists={this.state.lists} />;
                         }}
                     />
                     <Route exact path="/lists/:listId(\d+)" render={(props) => {

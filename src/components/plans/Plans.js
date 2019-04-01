@@ -19,6 +19,7 @@ class Plans extends Component {
                     </Button>
 
                     </div>
+                    <section className="plans">
                     {
 
 
@@ -38,6 +39,7 @@ class Plans extends Component {
                             </div>
                         )}
 
+                </section>
                 </section>
             </React.Fragment>
         );
