@@ -12,10 +12,14 @@ import List from './components/lists/List'
 // import ListEdit from './components/lists/ListEdit'
 import ListForm from './components/lists/ListForm'
 import ListDetail from './components/lists/ListDetails'
+// import ListItems from './components/lists/ListItems'
+// import EditListItems from './components/lists/EditListItems'
+// import ListItemDetails from './components/lists/ListItemDetails'
 // import Calendar from './components/calendar/Calendar'
 import PlanManager from './modules/PlanManager'
 import ListManager from './modules/ListManager'
 import NotesManager from './modules/NotesManager'
+// import ListItemManager from './modules/ListItemManager'
 // import UserManager from './modules/UserManager'
 import Callback from './components/authentication/Callback'
 import Auth0Client from './components/authentication/Auth'
@@ -172,7 +176,7 @@ class ApplicationViews extends Component {
                     path="/lists"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <List {...props} lists={this.state.lists} />;
+                            return <List {...props} lists={this.state.lists} completeList={this.completeList} />;
                         } else {
                             Auth0Client.signIn();
                             return null;
