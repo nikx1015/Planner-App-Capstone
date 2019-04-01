@@ -1,11 +1,11 @@
 import { Route } from 'react-router-dom'
 import React, { Component } from "react"
 import Plans from './components/plans/Plans'
-// import PlanEdit from './components/plans/PlanEdit'
+import PlanEdit from './components/plans/PlanEdit'
 import PlanForm from './components/plans/PlanForm'
 import PlanDetail from './components/plans/PlanDetails'
 import Notes from './components/notes/Notes'
-// import NoteEdit from './components/notes/NotesEdit'
+import NoteEdit from './components/notes/NotesEdit'
 import NoteForm from './components/notes/NotesForm'
 import NoteDetail from './components/notes/NoteDetails'
 import List from './components/lists/List'
@@ -151,6 +151,23 @@ class ApplicationViews extends Component {
                     )
                 }} />
                 <Route
+                    exact path="/plans/:planId(\d+)/edit"
+                    render={props => {
+                        if (Auth0Client.isAuthenticated()) {
+                            return (
+                                <PlanEdit
+                                    {...props}
+                                    // news={this.state.news}
+                                    updatePlan={this.updatePlan}
+                                />
+                            )
+                        } else {
+                            Auth0Client.signIn();
+                            return null;
+                        }
+                    }}
+                />
+                <Route
                     exact
                     path="/lists"
                     render={props => {
@@ -198,6 +215,18 @@ class ApplicationViews extends Component {
                     return (<NoteDetail {...props} deleteNote={this.deleteNote} notes={this.state.notes} />
                     )
                 }} />
+                    <Route
+                    exact path="/notes/:noteId(\d+)/edit"
+                    render={props => {
+                                return ( <NoteEdit
+                                    {...props}
+                                    // news={this.state.news}
+                                    updateNote={this.updateNote}
+                                />
+                                )
+
+                    }}
+                />
                 {/* <Route
                     exact
                     path="/calendar"
