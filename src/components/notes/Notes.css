@@ -1,0 +1,25 @@
+.notes{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.notes-card {
+    width: 10rem;
+}
+.notes-card-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.notes-card-link {
+    margin: 12px 0 0 0;
+    font-size: 0.7em;
+}
+.notesButton {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px, 0, 40px, 0;
+    padding: 5rem;
+  }
