@@ -22,7 +22,14 @@
     }
   ],
   "listItems": [],
-  "notes": [],
+  "notes": [
+    {
+      "title": "I'm a note",
+      "description": "Note",
+      "date": "2019-12-31",
+      "id": 1
+    }
+  ],
   "plans": [
     {
       "id": 1,
