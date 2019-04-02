@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import './List.css'
+import ListGroup from 'react-bootstrap/ListGroup'
+import items from './ListItems'
 export default class ListForm extends Component {
     // Set initial state
     state = {
         name: "",
-        description: "",
+        items: "",
         dueDate: "",
         complete: false
 
@@ -28,7 +30,7 @@ export default class ListForm extends Component {
         } else {
             const list = {
                 name: this.state.name,
-                description: this.state.description,
+                items: this.state.items,
                 dueDate: this.state.dueDate,
                 complete: this.state.complete,
                 userId: sessionStorage.getItem("credentials")
@@ -57,15 +59,18 @@ export default class ListForm extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="description">Description</label>
+                    <ListGroup>
+                        <label htmlFor="items">List Items</label>
                         <input
                             type="text"
                             required
                             className="form-control"
                             onChange={this.handleFieldChange}
-                            id="description"
-                            placeholder="List Description"
+                            id="items"
+                            placeholder="List Items"
                         />
+                         <ListGroup.Item>{items}</ListGroup.Item>
+                        </ListGroup>
                     </div>
                     <div className="form-group">
                         <label htmlFor="dueDate">Due Date</label>

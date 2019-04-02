@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import './List.css'
+import item from './ListItems'
 
 
 class List extends Component {
-    handleCheckbox = evt => {
-        evt.preventDefault();
-        const completeList = {
-            complete: true
-        };
-        this.props.completeList(completeList, this.props.match.params.listId);
-    };
+    // handleCheckbox = evt => {
+    //     evt.preventDefault();
+    //     const completeList = {
+    //         complete: true
+    //     };
+    //     this.props.completeList(completeList, this.props.match.params.listId);
+    // };
     render() {
         return (
             <React.Fragment>
                 <section className="lists">
                     <div className="listButton">
-                        <Button variant="outline-primary"
+                        <Button variant="outline-dark"
                             onClick={() => {
                                 console.log("you clicked it")
                                 this.props.history.push("/lists/new")
@@ -28,23 +30,27 @@ class List extends Component {
                     <section className="lists">
                         {this.props.lists.map(list =>
                             <div key={list.id} className="lists-card">
-
                                 <div className="lists-card-body">
                                     <h5 className="lists-card-title">
                                         {list.name}
                                         <br />
-                                        {list.date}
-                                        <label>Complete?
-                                <input
-                                                type="checkbox"
+                                        {/* {list.date} */}
+                                        {/* <label>Complete?
+                                <input type="checkbox"
                                                 onChange={() =>
                                                     this.props.completeList({ complete: true }, list.id)
                                                 }
                                             />
-                                        </label>
-
+                                        </label> */}
                                         <Link className="nav-link" to={`/lists/${list.id}`}>Details</Link>
                                     </h5>
+                                    {/* <section className="lists">
+                                    {this.props.items
+                  .filter(items => items.listId === list.id)
+                  .map(matchingItems => {
+                    return <div key={matchingItems.id} item={matchingItems} />
+                })}
+                </section> */}
                                 </div>
                             </div>
                         )}
@@ -57,3 +63,15 @@ class List extends Component {
 
 
 export default List
+
+// import React from 'react';
+
+// const List = props => (
+//   <ul>
+//     {
+//       props.items.map((item, index) => <li key={index}>{item}</li>)
+//     }
+//   </ul>
+// );
+
+// export default List;

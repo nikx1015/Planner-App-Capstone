@@ -12,7 +12,7 @@ import List from './components/lists/List'
 // import ListEdit from './components/lists/ListEdit'
 import ListForm from './components/lists/ListForm'
 import ListDetail from './components/lists/ListDetails'
-// import ListItems from './components/lists/ListItems'
+// import Item from './components/lists/ListItems'
 // import EditListItems from './components/lists/EditListItems'
 // import ListItemDetails from './components/lists/ListItemDetails'
 // import Calendar from './components/calendar/Calendar'
@@ -176,7 +176,7 @@ class ApplicationViews extends Component {
                     path="/lists"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <List {...props} lists={this.state.lists} completeList={this.completeList} />;
+                            return <List {...props} lists={this.state.lists} items={this.state.items} completeList={this.completeList} />;
                         } else {
                             Auth0Client.signIn();
                             return null;

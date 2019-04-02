@@ -29,7 +29,18 @@
       "id": 4
     }
   ],
-  "listItems": [],
+  "listItems": [
+    {
+      "id": 1,
+      "listId": 3,
+      "listItem": "apples"
+    },
+    {
+      "id": 2,
+      "listId": 3,
+      "listItem": "bananas"
+    }
+  ],
   "notes": [
     {
       "id": 1,
