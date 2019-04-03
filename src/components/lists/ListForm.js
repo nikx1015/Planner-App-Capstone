@@ -44,7 +44,7 @@ class ListForm extends Component {
 
     if (this.state.showInputField === true) {
       // this.props.addListItem()
-      constructListItem = evt => {
+      constructListItem  = evt => {
         evt.preventDefault();
 
         const listItem = {
