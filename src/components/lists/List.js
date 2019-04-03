@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import TodoList from './ListForm';
 import TodoItem from './ListItems';
 
-class App extends Component {
+class List extends Component {
 
     constructor(){
         super();
@@ -84,7 +84,7 @@ class App extends Component {
         <div className="col-md-4">
         <div className="body">
         <h2 className="heading">List</h2>
-        <input style={input_style} placeHolder="Add New List Item" type="input" onChange={this.handleInput} value={this.state.value} />
+        <input style={input_style} placeholder="Add New List Item" type="input" onChange={this.handleInput} value={this.state.value} />
         <button style={btn_style} type="button" className="btn btn-primary btn-md" onClick={this.handleAddItem}>Add</button>
         <TodoList items={this.state.items} deleteItem={this.handleDeleteItem} markItemComplete={this.handleMarkItemComplete} />
         </div>
@@ -97,4 +97,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default List;

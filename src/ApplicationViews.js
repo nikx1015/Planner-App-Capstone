@@ -29,7 +29,7 @@ class ApplicationViews extends Component {
     state = {
         users: [],
         lists: [],
-        listItems: [],
+        items: [],
         notes: [],
         plans: []
     }
