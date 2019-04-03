@@ -13,34 +13,19 @@
   ],
   "lists": [
     {
-      "name": "I'm a list",
-      "description": "New list",
-      "dueDate": "",
-      "complete": true,
+      "name": "I'm a list!",
+      "showInputField": false,
       "userId": "2",
-      "id": 3
+      "id": 1
     },
     {
-      "name": "I'm a new list...yay",
-      "description": "lists",
-      "dueDate": "2019-12-31",
-      "complete": false,
-      "userId": null,
-      "id": 4
+      "name": "I'm a list!!",
+      "showInputField": false,
+      "userId": "2",
+      "id": 2
     }
   ],
-  "listItems": [
-    {
-      "id": 1,
-      "listId": 3,
-      "listItem": "apples"
-    },
-    {
-      "id": 2,
-      "listId": 3,
-      "listItem": "bananas"
-    }
-  ],
+  "listItems": [],
   "notes": [
     {
       "id": 1,

@@ -12,6 +12,7 @@ import List from './components/lists/List'
 // import ListEdit from './components/lists/ListEdit'
 import ListForm from './components/lists/ListForm'
 import ListDetail from './components/lists/ListDetails'
+import ListItemForm from'./components/lists/ListItemForm'
 // import Items from './components/lists/ListItems'
 // import EditListItems from './components/lists/EditListItems'
 // import ListItemDetails from './components/lists/ListItemDetails'
@@ -19,7 +20,7 @@ import ListDetail from './components/lists/ListDetails'
 import PlanManager from './modules/PlanManager'
 import ListManager from './modules/ListManager'
 import NotesManager from './modules/NotesManager'
-// import ListItemManager from './modules/ListItemManager'
+import ListItemManager from './modules/ListItemManager'
 // import UserManager from './modules/UserManager'
 import Callback from './components/authentication/Callback'
 import Auth0Client from './components/authentication/Auth'
@@ -111,6 +112,13 @@ class ApplicationViews extends Component {
                 lists: lists
             }))
     }
+    addListItem = (ListObject) =>
+    ListItemManager.addListItem(ListObject)
+        .then(() => ListItemManager.getAllListItems()).then(listItems =>
+            this.setState({
+                listItems: listItems
+            })
+        );
     componentDidMount() {
         const newState = {};
         return PlanManager.getAll()
@@ -230,6 +238,21 @@ class ApplicationViews extends Component {
                                 />
                                 )
 
+                    }}
+                />
+                    <Route
+                    exact
+                    path="/listItems/new"
+                    render={props => {
+                        return <ListItemForm {...props} addItem={this.addListItem} listItems={this.state.listItems} />;
+                    }}
+                />
+
+<Route
+                    exact
+                    path="/listItems"
+                    render={props => {
+                        return <ListItemForm {...props} addItem={this.addListItem} listItems={this.state.listItems} />;
                     }}
                 />
                 {/* <Route
