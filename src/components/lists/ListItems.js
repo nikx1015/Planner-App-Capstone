@@ -1,38 +1,34 @@
 import React, { Component } from 'react';
-// import { Link } from "react-router-dom";
-// import Button from 'react-bootstrap/Button';
-import List from './List'
+// import './component.css';
 
+class TodoItem extends Component {
 
+    constructor(){
+        super();
 
-export default class ListItems extends Component {
-    state = {
-        lists: "",
-        items: []
+        this.onMarkItemComplete=(event)=>{
+            this.props.markItemComplete(this.props.id)
+        }
+
+        this.onDeleteItem=(event)=>{
+            this.props.deleteItem(this.props.id)
+        }
     }
-    handleFieldChange = evt => {
-        const stateToChange = {};
-        stateToChange[evt.target.id] = evt.target.value;
-        this.setState(stateToChange);
-    };
+    render() {
+        const itemClass = "isItemCompleted-" + (this.props.status ? "done" : "undone");
 
-      onSubmit = (event) => {
-        event.preventDefault();
-        this.setState({
-          lists: '',
-          items: [...this.state.items, this.state.lists]
-        });
-      }
-      render() {
-        return (
-          <div>
-            <form className="items" onSubmit={this.onSubmit}>
-              <input value={this.state.items} onChange={this.onChange} />
-              <button>Submit</button>
-            </form>
-            <List items={this.state.items} />
-          </div>
-        );
-      }
-    }
+    return (
+        <div className="container-fluid">
+        <div className="item">
 
+        <input type="checkbox" onChange={this.onMarkItemComplete} />
+        <span className={itemClass}> {this.props.task} </span>
+        <button style={{float:'right', marginTop:"-4px"}} type="button" className="btn btn-danger btn-sm" onClick={this.onDeleteItem}>x</button>
+
+        </div>
+        </div>
+    );
+  }
+}
+
+export default TodoItem;

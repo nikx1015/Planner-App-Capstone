@@ -1,77 +1,100 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-import './List.css'
-import item from './ListItems'
+// import './App.css';
+import TodoList from './ListForm';
+import TodoItem from './ListItems';
 
+class App extends Component {
 
-class List extends Component {
-    // handleCheckbox = evt => {
-    //     evt.preventDefault();
-    //     const completeList = {
-    //         complete: true
-    //     };
-    //     this.props.completeList(completeList, this.props.match.params.listId);
-    // };
-    render() {
-        return (
-            <React.Fragment>
-                <section className="lists">
-                    <div className="listButton">
-                        <Button variant="outline-dark"
-                            onClick={() => {
-                                console.log("you clicked it")
-                                this.props.history.push("/lists/new")
-                            }
-                            }>
-                            Add New List
-                    </Button>
-                    </div>
-                    <section className="lists">
-                        {this.props.lists.map(list =>
-                            <div key={list.id} className="lists-card">
-                                <div className="lists-card-body">
-                                    <h5 className="lists-card-title">
-                                        {list.name}
-                                        <br />
-                                        {/* {list.date} */}
-                                        {/* <label>Complete?
-                                <input type="checkbox"
-                                                onChange={() =>
-                                                    this.props.completeList({ complete: true }, list.id)
-                                                }
-                                            />
-                                        </label> */}
-                                        <Link className="nav-link" to={`/lists/${list.id}`}>Details</Link>
-                                    </h5>
-                                    {/* <section className="lists">
-                                    {this.props.items
-                  .filter(items => items.listId === list.id)
-                  .map(matchingItems => {
-                    return <div key={matchingItems.id} item={matchingItems} />
-                })}
-                </section> */}
-                                </div>
-                            </div>
-                        )}
-                    </section>
-                </section>
-            </React.Fragment>
-        )
+    constructor(){
+        super();
+
+        this.state={
+            value:"",
+            items:[]
+        }
+
+        this.handleInput=(event)=>{
+            this.setState({
+                value:event.target.value
+            })
+        }
+
+        this.handleAddItem=(event)=>{
+            event.preventDefault();
+
+            if(this.state.value==="")
+                return;
+
+            const newItem={
+                task:this.state.value,
+                id: Date.now(),
+                status:false
+            }
+
+            this.setState( (prevState)=>({
+                items:prevState.items.concat(newItem),
+                value: "",
+
+            }))
+        }
+
+        this.handleMarkItemComplete=(itemId)=>{
+
+            const updatedItems= this.state.items.map(item =>{
+                if(itemId === item.id)
+                    item.status = !item.status;
+
+                return item;
+            })
+
+            this.setState({
+                items:[].concat(updatedItems)
+            })
+        }
+
+        this.handleDeleteItem=(itemId)=>{
+
+            const updatedItems=this.state.items.filter(item=>{
+                return item.id!==itemId
+            })
+
+            this.setState({
+                items:[].concat(updatedItems)
+            })
+        }
     }
+
+    render() {
+
+        const btn_style={
+            marginLeft:"10px",
+            marginBottom:"5px"
+        }
+
+        const input_style={
+            width:"250px",
+            padding:"5px"
+        }
+
+    return (
+        <div className="container-fluid">
+        <div className="row">
+
+        <div className="col-md-4"></div>
+        <div className="col-md-4">
+        <div className="body">
+        <h2 className="heading">List</h2>
+        <input style={input_style} placeHolder="Add New List Item" type="input" onChange={this.handleInput} value={this.state.value} />
+        <button style={btn_style} type="button" className="btn btn-primary btn-md" onClick={this.handleAddItem}>Add</button>
+        <TodoList items={this.state.items} deleteItem={this.handleDeleteItem} markItemComplete={this.handleMarkItemComplete} />
+        </div>
+        </div>
+        <div className="col-md-4"></div>
+
+        </div>
+        </div>
+    );
+  }
 }
 
-
-export default List
-
-// import React from 'react';
-
-// const List = props => (
-//   <ul>
-//     {
-//       props.items.map((item, index) => <li key={index}>{item}</li>)
-//     }
-//   </ul>
-// );
-
-// export default List;
+export default App;
