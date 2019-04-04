@@ -12,18 +12,7 @@
     }
   ],
   "lists": [
-    {
-      "name": "I'm a list!",
-      "showInputField": false,
-      "userId": "2",
-      "id": 1
-    },
-    {
-      "name": "I'm a list!!",
-      "showInputField": false,
-      "userId": "2",
-      "id": 2
-    }
+
   ],
   "listItems": [],
   "notes": [

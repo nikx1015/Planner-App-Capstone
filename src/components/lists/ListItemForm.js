@@ -19,7 +19,7 @@ class ListItemForm extends Component {
         Local method for validation, creating news object, and
         invoking the function reference passed from parent component
      */
-  constructList = evt => {
+  constructListItem = evt => {
     evt.preventDefault();
 
     // if (this.state.name === "") {

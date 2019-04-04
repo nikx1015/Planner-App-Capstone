@@ -17,6 +17,14 @@ class ListForm extends Component {
     this.setState(stateToChange);
   };
 
+  constructListItem  = evt => {
+    evt.preventDefault();
+
+    const listItem = {
+      item: this.state.item,
+      listId: this.state.listId
+    }
+  }
   /*
         Local method for validation, creating object, and
         invoking the function reference passed from parent component
@@ -25,37 +33,23 @@ class ListForm extends Component {
   constructList = evt => {
     evt.preventDefault();
 
-    // if (this.state.name === "") {
-    //   window.alert("Please enter a new list");
-    // } else {
     const list = {
       name: this.state.name,
-      showInputField: this.state.showInputField,
       userId: sessionStorage.getItem("credentials")
-      // Make sure the employeeId is saved to the database as a number since it is a foreign key.
     }
-
-    // Create the article and redirect user to news list
 
     this.props.addList(list)
-      .then(() => this.props.history.push("/lists"))
-      .then(() => this.state.showInputField === true);
-    // .then(() => this.props.history.push("/listItems"));
+    // this.props.addListItem()
 
-    if (this.state.showInputField === true) {
-      // this.props.addListItem()
-      constructListItem  = evt => {
-        evt.preventDefault();
+      .then((listObject) => {
+        console.log(listObject)
+        this.setState(listObject);
+        console.log(this.state)
 
-        const listItem = {
-          item: this.state.item,
-          listId: this.state.listId
-        }
-
-        this.props.constructListItem(listItem)
+        // this.state.showInputField === true
       }
-    }
-  }
+      )}
+
 
   render() {
     return (
@@ -79,6 +73,11 @@ class ListForm extends Component {
           >
             Submit
           </button>
+          <div className="form-group">
+          <label htmlFor="form-input">Item</label>
+          <input type="text" className="form-control" onChange={this.handleFieldChange} id="item" placeholder="item" />
+          </div>
+
         </form>
       </React.Fragment>
     );

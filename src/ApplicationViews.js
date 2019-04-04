@@ -84,11 +84,8 @@ class ApplicationViews extends Component {
 
     addList = (ListObject) =>
         ListManager.addList(ListObject)
-            .then(() => ListManager.getAllLists()).then(lists =>
-                this.setState({
-                    lists: lists
-                })
-            );
+
+
     deleteList = id => {
         return ListManager.deleteList(id).then(lists =>
             this.setState({
