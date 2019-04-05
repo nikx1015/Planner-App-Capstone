@@ -1,91 +1,128 @@
-import React, { Component } from "react";
-import './List.css'
-export default class ListForm extends Component {
-    // Set initial state
-    state = {
-        name: "",
-        description: "",
-        dueDate: "",
-        complete: false
+import React, { Component } from 'react';
+import addListItem from '../../modules/ListItemManager'
+import ListItems from './ListItems';
+import getAllListItems from '../../modules/ListItemManager'
 
-    };
 
-    // Update state whenever an input field is edited
-    handleFieldChange = evt => {
-        const stateToChange = {};
-        stateToChange[evt.target.id] = evt.target.value;
-        this.setState(stateToChange);
-    };
+class ListForm extends Component {
 
-    /*
-          Local method for validation, creating task object, and
-          invoking the function reference passed from parent component
-       */
-    createList = evt => {
-        evt.preventDefault();
-        if (this.state.name === "") {
-            window.alert("Please create a list");
-        } else {
-            const list = {
-                name: this.state.name,
-                description: this.state.description,
-                dueDate: this.state.dueDate,
-                complete: this.state.complete,
-                userId: sessionStorage.getItem("credentials")
-            };
+  state = {
+    name: "",
+    showInputField: false
+  };
 
-            // Create the task and redirect user to task list
+  // Update state whenever an input field is edited
+  handleFieldChange = evt => {
+    const stateToChange = {};
+    stateToChange[evt.target.id] = evt.target.value;
+    this.setState(stateToChange);
+  };
 
-            this.props.addList(list)
-                .then(() => this.props.history.push("/lists"));
-        }
-    };
+  constructListItem  = evt => {
+    evt.preventDefault();
 
-    render() {
-        return (
-            <React.Fragment>
-                <form className="listForm">
-                    <div className="form-group">
-                        <label htmlFor="name">List Name</label>
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            onChange={this.handleFieldChange}
-                            id="name"
-                            placeholder="List"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="description">Description</label>
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            onChange={this.handleFieldChange}
-                            id="description"
-                            placeholder="List Description"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="dueDate">Due Date</label>
-                        <input
-                            type="date"
-                            required
-                            className="form-control"
-                            onChange={this.handleFieldChange}
-                            id="dueDate"
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        onClick={this.createList}
-                        className="btn btn-primary"
-                    >
-                        Submit
-          </button>
-                </form>
-            </React.Fragment>
-        );
+    const listItem = {
+      item: this.state.item,
+      listId: this.state.id,
+      itemId: this.state.itemId
     }
+    this.props.addListItem(listItem)
+    this.setState(listItem)
+    console.log(listItem)
+
+    // .then((listItem)=> {
+    //   console.log(listItem)
+    //     })
+
+    console.log(this.state)
+  }
+  /*
+        Local method for validation, creating object, and
+        invoking the function reference passed from parent component
+     */
+
+  constructList = evt => {
+    evt.preventDefault();
+
+    const list = {
+      name: this.state.name,
+      userId: sessionStorage.getItem("credentials")
+    }
+
+    this.props.addList(list)
+    // this.props.addListItem()
+
+      .then((listObject) => {
+        console.log(listObject)
+        this.setState(listObject);
+        console.log(this.state)
+
+        // this.state.showInputField === true
+      }
+      )}
+
+
+  render() {
+    return (
+      <React.Fragment>
+        <form className="listForm">
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              required
+              className="form-control"
+              onChange={this.handleFieldChange}
+              id="name"
+              placeholder="list name"
+            />
+          </div>
+          <button
+            type="submit"
+            onClick={this.constructList}
+            className="btn btn-primary"
+          >
+            Submit
+          </button>
+          {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
+         <h5 className="item-info">{item.item}   <button
+              href="#"
+              className="btn btn-danger"
+              onClick={() =>
+                this.props
+                  .deleteListItem(item.id)
+              }
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={() => {
+                this.props.history.push(
+                  `/listItems/${item.id}/edit`
+                );
+              }}
+            >
+              Edit
+            </button></h5>
+          </div></div>)}
+          <div className="form-group">
+          <label htmlFor="form-input">Item</label>
+          <input type="text" className="form-control" onChange={this.handleFieldChange} id="item" placeholder="item" />
+          </div>
+          <button
+            type="submit"
+            onClick={this.constructListItem}
+            className="btn btn-primary"
+          >
+            Add Item
+          </button>
+
+        </form>
+      </React.Fragment>
+    );
+  }
 }
+
+export default ListForm;

@@ -2,8 +2,6 @@
 import React, { Component } from "react"
 import './List.css'
 
-
-
 export default class ListDetail extends Component {
   render() {
     /*
@@ -18,8 +16,8 @@ export default class ListDetail extends Component {
         <div key={list.id} className="list-card">
           <div className="list-card-body">
             <h6 className="list-card-name">{list.name}</h6>
-            <h6 className="list-card-listItems">{list.listItems}</h6>
-            <h6 className="list-card-date">{list.dueDate}</h6>
+            <h6 className="list-card-items">{list.items}</h6>
+
 
 
 

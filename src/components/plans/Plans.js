@@ -10,7 +10,7 @@ class Plans extends Component {
                 <section className="plans">
                     <div className="plansButton">
 
-                        <Button variant="outline-primary" type="submit"
+                        <Button variant="outline-dark" type="submit"
                             onClick={() => {
                                 this.props.history.push("/plans/new")
                             }

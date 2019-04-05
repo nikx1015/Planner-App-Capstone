@@ -12,24 +12,11 @@
     }
   ],
   "lists": [
-    {
-      "name": "I'm a list",
-      "description": "New list",
-      "dueDate": "",
-      "complete": true,
-      "userId": "2",
-      "id": 3
-    },
-    {
-      "name": "I'm a new list...yay",
-      "description": "lists",
-      "dueDate": "2019-12-31",
-      "complete": false,
-      "userId": null,
-      "id": 4
-    }
+
   ],
-  "listItems": [],
+  "listItems": [
+
+  ],
   "notes": [
     {
       "id": 1,
