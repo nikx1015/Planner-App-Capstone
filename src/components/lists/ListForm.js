@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import addListItem from '../../modules/ListItemManager'
 import ListItems from './ListItems';
+import getAllListItems from '../../modules/ListItemManager'
 
 
 class ListForm extends Component {
@@ -22,8 +23,18 @@ class ListForm extends Component {
 
     const listItem = {
       item: this.state.item,
-      listId: this.state.listId
+      listId: this.state.id,
+      itemId: this.state.itemId
     }
+    this.props.addListItem(listItem)
+    this.setState(listItem)
+    console.log(listItem)
+
+    // .then((listItem)=> {
+    //   console.log(listItem)
+    //     })
+
+    console.log(this.state)
   }
   /*
         Local method for validation, creating object, and
@@ -73,21 +84,45 @@ class ListForm extends Component {
           >
             Submit
           </button>
+          {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
+         <h5 className="item-info">{item.item}   <button
+              href="#"
+              className="btn btn-danger"
+              onClick={() =>
+                this.props
+                  .deleteListItem(item.id)
+              }
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={() => {
+                this.props.history.push(
+                  `/listItems/${item.id}/edit`
+                );
+              }}
+            >
+              Edit
+            </button></h5>
+          </div></div>)}
           <div className="form-group">
           <label htmlFor="form-input">Item</label>
           <input type="text" className="form-control" onChange={this.handleFieldChange} id="item" placeholder="item" />
           </div>
+          <button
+            type="submit"
+            onClick={this.constructListItem}
+            className="btn btn-primary"
+          >
+            Add Item
+          </button>
 
         </form>
       </React.Fragment>
     );
   }
 }
-
-//     <div>
-//     {this.props.items.map(item => (
-//     <TodoItem key={item.id} id={item.id} status={item.status} task={item.task} deleteItem={this.props.deleteItem} markItemComplete={this.props.markItemComplete} />
-//     ))}
-// </div>
 
 export default ListForm;

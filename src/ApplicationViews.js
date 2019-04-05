@@ -9,11 +9,11 @@ import NoteEdit from './components/notes/NotesEdit'
 import NoteForm from './components/notes/NotesForm'
 import NoteDetail from './components/notes/NoteDetails'
 import List from './components/lists/List'
-// import ListEdit from './components/lists/ListEdit'
+import EditListItems from './components/lists/ListEdit'
 import ListForm from './components/lists/ListForm'
 import ListDetail from './components/lists/ListDetails'
-import ListItemForm from'./components/lists/ListItemForm'
-// import Items from './components/lists/ListItems'
+import ListItemForm from './components/lists/ListItemForm'
+import ListItems from './components/lists/ListItems'
 // import EditListItems from './components/lists/EditListItems'
 // import ListItemDetails from './components/lists/ListItemDetails'
 // import Calendar from './components/calendar/Calendar'
@@ -30,7 +30,7 @@ class ApplicationViews extends Component {
     state = {
         users: [],
         lists: [],
-        items: [],
+        listItems: [],
         notes: [],
         plans: []
     }
@@ -110,12 +110,29 @@ class ApplicationViews extends Component {
             }))
     }
     addListItem = (ListObject) =>
-    ListItemManager.addListItem(ListObject)
-        .then(() => ListItemManager.getAllListItems()).then(listItems =>
-            this.setState({
-                listItems: listItems
-            })
-        );
+        ListItemManager.addListItem(ListObject)
+            .then(() => ListItemManager.getAllListItems()).then(listItems =>
+                this.setState({
+                    listItems: listItems
+                })
+            );
+
+            deleteListItem = id => {
+                return ListItemManager.deleteListItem(id).then(listItems =>
+                    this.setState({
+                        listItems: listItems
+                    })
+                );
+            };
+            updateListItem = (editedListItemObject) => {
+                return ListItemManager.put(editedListItemObject)
+                    .then(() => ListItemManager.getAllListItems())
+                    .then(listItems => {
+                        this.setState({
+                            listItems: listItems
+                        })
+                    });
+            };
     componentDidMount() {
         const newState = {};
         return PlanManager.getAll()
@@ -129,6 +146,10 @@ class ApplicationViews extends Component {
             })
             .then(parsedLists => {
                 newState.lists = parsedLists;
+                return ListItemManager.getAllListItems();
+            })
+            .then(parsedListItems => {
+                newState.listItems = parsedListItems;
                 this.setState(newState);
             })
     }
@@ -189,11 +210,38 @@ class ApplicationViews extends Component {
                         }
                     }}
                 />
+                  <Route
+                    exact
+                    path="/listItems"
+                    render={props => {
+
+                            return <ListItems {...props} lists={this.state.lists} items={this.state.items} addListItem={this.addListItem} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem}
+                            />;
+                    }}
+                />
                 <Route
                     exact
                     path="/lists/new"
                     render={props => {
-                        return <ListForm {...props} addList={this.addList} lists={this.state.lists} />;
+                        return <ListForm {...props} addList={this.addList} lists={this.state.lists} addListItem={this.addListItem} listItems={this.state.listItems} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem} />;
+                    }}
+                />
+
+<Route
+                    exact path="/listItems/:itemId(\d+)/edit"
+                    render={props => {
+                        if (Auth0Client.isAuthenticated()) {
+                            return (
+                                <EditListItems
+                                    {...props}
+                                    // news={this.state.news}
+                                    updateListItem={this.updateListItem} items={this.state.items}
+                                />
+                            )
+                        } else {
+                            Auth0Client.signIn();
+                            return null;
+                        }
                     }}
                 />
                 <Route exact path="/lists/:listId(\d+)" render={(props) => {
@@ -225,19 +273,19 @@ class ApplicationViews extends Component {
                     return (<NoteDetail {...props} deleteNote={this.deleteNote} notes={this.state.notes} />
                     )
                 }} />
-                    <Route
+                <Route
                     exact path="/notes/:noteId(\d+)/edit"
                     render={props => {
-                                return ( <NoteEdit
-                                    {...props}
-                                    // news={this.state.news}
-                                    updateNote={this.updateNote}
-                                />
-                                )
+                        return (<NoteEdit
+                            {...props}
+                            // news={this.state.news}
+                            updateNote={this.updateNote}
+                        />
+                        )
 
                     }}
                 />
-                    <Route
+                <Route
                     exact
                     path="/listItems/new"
                     render={props => {
@@ -245,7 +293,7 @@ class ApplicationViews extends Component {
                     }}
                 />
 
-<Route
+                <Route
                     exact
                     path="/listItems"
                     render={props => {
