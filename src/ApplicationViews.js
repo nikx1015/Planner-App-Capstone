@@ -24,6 +24,7 @@ import ListItemManager from './modules/ListItemManager'
 // import UserManager from './modules/UserManager'
 import Callback from './components/authentication/Callback'
 import Auth0Client from './components/authentication/Auth'
+import Calendar from './components/calendar/Calendar'
 
 class ApplicationViews extends Component {
 
@@ -297,10 +298,10 @@ class ApplicationViews extends Component {
                     exact
                     path="/listItems"
                     render={props => {
-                        return <ListItemForm {...props} addItem={this.addListItem} listItems={this.state.listItems} />;
+                        return <ListItemForm {...props} addItem={this.addListItem} listItems={this.state.listItems} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem}/>;
                     }}
                 />
-                {/* <Route
+                <Route
                     exact
                     path="/calendar"
                     render={props => {
@@ -311,7 +312,7 @@ class ApplicationViews extends Component {
                             return null;
                         }
                     }}
-                /> */}
+                />
             </div>
         )
     }

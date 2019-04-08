@@ -12,10 +12,28 @@
     }
   ],
   "lists": [
-
+    {
+      "name": "I'm a list!",
+      "userId": null,
+      "id": 1
+    },
+    {
+      "name": "harry",
+      "userId": "1",
+      "id": 2
+    },
+    {
+      "name": "harry",
+      "userId": "2",
+      "id": 3
+    }
   ],
   "listItems": [
-
+    {
+      "item": "an item!",
+      "listId": 3,
+      "id": 1
+    }
   ],
   "notes": [
     {

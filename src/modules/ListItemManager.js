@@ -16,7 +16,7 @@ return fetch(`http://localhost:5002/listItems/${editedListItem.id}`, {
 }).then(data => data.json());
 },
 
-deleteListItem: (id) => {
+deleteListItem: id => {
   return fetch (`http://localhost:5002/listItems/${id}`, {
   method: "DELETE"
 })
