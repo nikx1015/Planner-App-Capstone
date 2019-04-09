@@ -19,19 +19,14 @@
     },
     {
       "name": "harry",
-      "userId": "1",
-      "id": 2
-    },
-    {
-      "name": "harry",
       "userId": "2",
-      "id": 3
+      "id": 2
     }
   ],
   "listItems": [
     {
-      "item": "an item!",
-      "listId": 3,
+      "item": "an item",
+      "listId": 2,
       "id": 1
     }
   ],
@@ -39,7 +34,7 @@
     {
       "id": 1,
       "title": "I'm a note",
-      "description": "Note!",
+      "description": "Note!!!",
       "date": "2019-12-31"
     }
   ],
@@ -49,6 +44,18 @@
       "name": "A plan",
       "description": "I'm a plan!",
       "date": "2019-12-31"
+    },
+    {
+      "id": 2,
+      "name": "A new plan",
+      "description": "plan",
+      "date": "2019-03-31"
+    },
+    {
+      "id": 3,
+      "name": "Newest plan",
+      "description": "I'm a plan",
+      "date": "2019-05-31"
     }
   ]
 }

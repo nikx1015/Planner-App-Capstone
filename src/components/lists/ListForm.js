@@ -24,7 +24,7 @@ class ListForm extends Component {
     const listItem = {
       item: this.state.item,
       listId: this.state.id,
-      itemId: this.state.itemId
+      itemId: this.state.item.itemId
     }
     this.props.addListItem(listItem)
     this.setState(listItem)

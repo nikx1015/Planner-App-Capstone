@@ -31,7 +31,8 @@ export default class ListItemEditForm extends Component {
   componentDidMount() {
     ListItemManager.getOneListItem(this.props.match.params.itemId).then(item => {
       this.setState({
-        item: item.item
+        item: item.item,
+        listId: item.listId
       });
     });
   }

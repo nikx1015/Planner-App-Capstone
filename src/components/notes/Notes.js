@@ -24,6 +24,9 @@ class Notes extends Component {
 
 
                         this.props.notes.sort((a, b) => a.date > b.date ? 1 : -1).map(note =>
+                            {
+                                if (note.userId === sessionStorage.getItem('credentials')) {
+                                return (
 
                             <div key={note.id} className="notes-card">
                                 <div className="notes-card-body">
@@ -37,7 +40,9 @@ class Notes extends Component {
                                     </h5>
                                 </div>
                             </div>
-                        )}
+                          )
+
+                        }})}
 
                 </section>
                 </section>

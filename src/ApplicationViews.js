@@ -1,5 +1,6 @@
 import { Route } from 'react-router-dom'
 import React, { Component } from "react"
+import './components/Planner.css'
 import Plans from './components/plans/Plans'
 import PlanEdit from './components/plans/PlanEdit'
 import PlanForm from './components/plans/PlanForm'
@@ -35,6 +36,9 @@ class ApplicationViews extends Component {
         notes: [],
         plans: []
     }
+
+    isAuthenticated = () => true;
+
     postPlan = (PlanObject) =>
         PlanManager.postPlan(PlanObject)
             .then(() => PlanManager.getAll()).then(plans =>
@@ -50,7 +54,7 @@ class ApplicationViews extends Component {
         );
     };
     updatePlan = (editedPlanObject) => {
-        return PlanManager.put(editedPlanObject)
+        return PlanManager.updatePlan(editedPlanObject)
             .then(() => PlanManager.getAll())
             .then(plans => {
                 this.setState({
@@ -159,6 +163,7 @@ class ApplicationViews extends Component {
         return (
             <div className="container-div">
                 <Route exact path="/callback" component={Callback} />
+
                 {/* <Route exact path="/" render={(props) => {
                     return <Plans {...props} plans={this.state.plans} />
                 }} /> */}

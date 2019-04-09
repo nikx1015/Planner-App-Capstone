@@ -23,7 +23,7 @@ const planManager = {
           body: JSON.stringify(newPlan)
         }).then(data => data.json())
       },
-      put(editedPlan) {
+      updatePlan(editedPlan) {
         return fetch(`http://localhost:5002/plans/${editedPlan.id}`, {
           method: "PUT",
           headers: {

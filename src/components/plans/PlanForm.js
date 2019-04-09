@@ -68,13 +68,13 @@ export default class PlanForm extends Component {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="dueDate">Due Date</label>
+              <label htmlFor="date">Date</label>
               <input
                 type="date"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="dueDate"
+                id="date"
               />
             </div>
             <button
