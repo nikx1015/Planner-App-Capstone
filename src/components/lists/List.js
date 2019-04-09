@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
 import './List.css'
 
 
@@ -14,6 +15,8 @@ export default class List extends Component {
     <div className="list-body">
     <h6 className="list-body-name">{list.name}</h6>
     </div>
+    <Link className="nav-link" to={`/lists/${list.id}`}>Details</Link>
+
     </div>
 
     )

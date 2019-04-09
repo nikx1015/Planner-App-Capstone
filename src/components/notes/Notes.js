@@ -23,19 +23,19 @@ class Notes extends Component {
                     {
 
 
-                        this.props.notes.sort((a, b) => a.date > b.date ? 1 : -1).map(note =>
+                        this.props.notes.sort((a, b) => a.date > b.date ? 1 : -1).map(notes =>
                             {
-                                if (note.userId === sessionStorage.getItem('credentials')) {
+                                if (notes.userId === sessionStorage.getItem('credentials')) {
                                 return (
 
-                            <div key={note.id} className="notes-card">
+                            <div key={notes.id} className="notes-card">
                                 <div className="notes-card-body">
                                     <h5 className="notes-card-title">
-                                        {note.title}
+                                        {notes.title}
                                         <br />
-                                        {note.date}
+                                        {notes.date}
 
-                                        <Link className="nav-link" to={`/notes/${note.id}`}>Details</Link>
+                                        <Link className="nav-link" to={`/notes/${notes.id}`}>Details</Link>
 
                                     </h5>
                                 </div>

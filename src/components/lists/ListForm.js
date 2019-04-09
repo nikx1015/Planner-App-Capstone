@@ -26,8 +26,12 @@ class ListForm extends Component {
       listId: this.state.id,
       itemId: this.state.item.itemId
     }
+    if(this.state.id > 0) {
     this.props.addListItem(listItem)
     this.setState(listItem)
+    } else {
+      window.alert("Please create a list")
+    }
     console.log(listItem)
 
     // .then((listItem)=> {

@@ -14,11 +14,11 @@
   "lists": [
     {
       "name": "I'm a list!",
-      "userId": null,
+      "userId": "2",
       "id": 1
     },
     {
-      "name": "harry",
+      "name": "fred",
       "userId": "2",
       "id": 2
     }
@@ -26,7 +26,7 @@
   "listItems": [
     {
       "item": "an item",
-      "listId": 2,
+      "listId": 1,
       "id": 1
     }
   ],
@@ -36,6 +36,12 @@
       "title": "I'm a note",
       "description": "Note!!!",
       "date": "2019-12-31"
+    },
+    {
+      "id": 2,
+      "title": "New Note",
+      "description": "Notes",
+      "date": ""
     }
   ],
   "plans": [
@@ -56,6 +62,37 @@
       "name": "Newest plan",
       "description": "I'm a plan",
       "date": "2019-05-31"
+    },
+    {
+      "name": "A new plan",
+      "description": "A plan",
+      "date": "2019-10-31",
+      "id": 4
+    },
+    {
+      "name": "harry",
+      "description": "TASK",
+      "date": "2019-10-31",
+      "id": 5
+    },
+    {
+      "name": "harry",
+      "description": "TASK",
+      "date": "2019-12-31",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "harry",
+      "description": "TASK",
+      "date": ""
+    },
+    {
+      "name": "A new plan",
+      "description": "plan",
+      "date": "2019-10-31",
+      "userId": "2",
+      "id": 8
     }
   ]
 }

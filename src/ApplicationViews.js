@@ -208,7 +208,7 @@ class ApplicationViews extends Component {
                     path="/lists"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <List {...props} lists={this.state.lists} items={this.state.items}
+                            return <List {...props} lists={this.state.lists}
                             />;
                         } else {
                             Auth0Client.signIn();
