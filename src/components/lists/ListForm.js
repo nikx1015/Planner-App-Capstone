@@ -86,7 +86,7 @@ class ListForm extends Component {
             onClick={this.constructList}
             className="btn btn-primary"
           >
-            Submit
+            +
           </button>
           {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
          <h5 className="item-info">{item.item}   <button
