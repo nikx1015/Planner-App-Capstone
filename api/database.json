@@ -16,18 +16,17 @@
       "name": "I'm a list!",
       "userId": "2",
       "id": 1
-    },
-    {
-      "name": "fred",
-      "userId": "2",
-      "id": 2
     }
   ],
   "listItems": [
     {
-      "item": "an item",
-      "listId": 1,
+      "name": "I'm a list!",
       "id": 1
+    },
+    {
+      "name": "I'm a list!",
+      "listId": "1",
+      "id": 2
     }
   ],
   "notes": [
@@ -93,6 +92,13 @@
       "date": "2019-10-31",
       "userId": "2",
       "id": 8
+    },
+    {
+      "name": "This plan",
+      "description": "Is flawless",
+      "date": "2019-04-27",
+      "userId": "2",
+      "id": 9
     }
   ]
 }

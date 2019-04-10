@@ -7,6 +7,13 @@ import './Calendar.css'
 // import './main.scss' // webpack must be configured to do this
 
 export default class Calendar extends React.Component {
+  calendarComponentRef = React.createRef()
+  state = {
+    value: "",
+    calendarEvents: []
+  }
+
+
 
     render() {
         return (
@@ -25,9 +32,12 @@ export default class Calendar extends React.Component {
                   right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                 }}
                 plugins={[ dayGridPlugin ]}
-                // ref={ this.calendarComponentRef }
+                ref={ this.calendarComponentRef }
                 // weekends={ this.state.calendarWeekends }
-                // events={ this.state.calendarEvents }
+                events={ this.state.calendarEvents }
+
+
+
                 // dateClick={ this.handleDateClick }
                 />
             </div>

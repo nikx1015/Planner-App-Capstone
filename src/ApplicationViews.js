@@ -10,14 +10,13 @@ import NoteEdit from './components/notes/NotesEdit'
 import NoteForm from './components/notes/NotesForm'
 import NoteDetail from './components/notes/NoteDetails'
 import List from './components/lists/List'
-import EditListItems from './components/lists/ListEdit'
+import EditList from './components/lists/ListEdit'
 import ListForm from './components/lists/ListForm'
 import ListDetail from './components/lists/ListDetails'
 import ListItemForm from './components/lists/ListItemForm'
 import ListItems from './components/lists/ListItems'
-// import EditListItems from './components/lists/EditListItems'
+import EditListItems from './components/lists/ListItemEdit'
 // import ListItemDetails from './components/lists/ListItemDetails'
-// import Calendar from './components/calendar/Calendar'
 import PlanManager from './modules/PlanManager'
 import ListManager from './modules/ListManager'
 import NotesManager from './modules/NotesManager'
@@ -38,6 +37,12 @@ class ApplicationViews extends Component {
     }
 
     isAuthenticated = () => true;
+
+    displayPlan = () =>
+    PlanManager.getAll().then(plans =>
+        this.setState({
+            plans: plans
+        }));
 
     postPlan = (PlanObject) =>
         PlanManager.postPlan(PlanObject)
@@ -175,7 +180,7 @@ class ApplicationViews extends Component {
                     path="/plans"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <Plans {...props} plans={this.state.plans} />;
+                            return <Plans {...props} plans={this.state.plans} calendar={this.state.Calendar}/>;
                         } else {
                             Auth0Client.signIn();
                             return null;
@@ -240,8 +245,24 @@ class ApplicationViews extends Component {
                             return (
                                 <EditListItems
                                     {...props}
-                                    // news={this.state.news}
                                     updateListItem={this.updateListItem} items={this.state.items}
+                                />
+                            )
+                        } else {
+                            Auth0Client.signIn();
+                            return null;
+                        }
+                    }}
+                />
+
+<Route
+                    exact path="/lists/:listId(\d+)/edit"
+                    render={props => {
+                        if (Auth0Client.isAuthenticated()) {
+                            return (
+                                <EditList
+                                    {...props}
+                                    updateList={this.updateList} lists={this.state.lists}
                                 />
                             )
                         } else {
@@ -252,7 +273,7 @@ class ApplicationViews extends Component {
                 />
                 <Route exact path="/lists/:listId(\d+)" render={(props) => {
 
-                    return (<ListDetail {...props} deleteList={this.deleteList} lists={this.state.lists} />
+                    return (<ListDetail {...props} deleteList={this.deleteList} lists={this.state.lists} updateList={this.updateList} />
                     )
                 }} />
                 <Route
@@ -293,9 +314,9 @@ class ApplicationViews extends Component {
                 />
                 <Route
                     exact
-                    path="/listItems/new"
+                    path="/listItems/:listId/new"
                     render={props => {
-                        return <ListItemForm {...props} addItem={this.addListItem} listItems={this.state.listItems} />;
+                        return <ListItemForm {...props} lists={this.state.lists} addListItem={this.addListItem} listItems={this.state.listItems} />;
                     }}
                 />
 
@@ -311,7 +332,7 @@ class ApplicationViews extends Component {
                     path="/calendar"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <Calendar {...props} calendar={this.state.calendar} />;
+                            return <Calendar {...props} calendar={this.state.calendar} plans={this.state.plans}/>;
                         } else {
                             Auth0Client.signIn();
                             return null;

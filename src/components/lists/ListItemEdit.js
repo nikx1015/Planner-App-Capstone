@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import ListManager from "../../modules/ListManager";
+import ListItemManager from "../../modules/ListItemManager";
 import "./List.css"
-export default class ListEditForm extends Component {
+export default class ListItemEditForm extends Component {
   // Set initial state
   state = {
-    name: ""
+    item: ""
   };
 
   handleFieldChange = evt => {
@@ -13,25 +13,26 @@ export default class ListEditForm extends Component {
     this.setState(stateToChange);
   };
 
-  updateExistingList = evt => {
+  updateExistingListItem = evt => {
     evt.preventDefault();
 
-      const editedList = {
-        id: this.props.match.params.listId,
-        name: this.state.name,
-        userId: this.state.userId
+      const editedItem = {
+        id: this.props.match.params.itemId,
+        listId: this.props.match.params.listId,
+        item: this.state.item
       };
 
       this.props
-        .updateList(editedList)
-        .then(() => this.props.history.push("/lists"));
+        .updateListItem(editedItem)
+        .then(() => this.props.history.push("/lists/new"));
     }
 
 
   componentDidMount() {
-    ListManager.getOneList(this.props.match.params.listId).then(list => {
+    ListItemManager.getOneListItem(this.props.match.params.itemId).then(item => {
       this.setState({
-        name: list.name
+        item: item.item,
+        listId: item.listId
       });
     });
   }
@@ -39,21 +40,21 @@ export default class ListEditForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="listForm">
+        <form className="itemForm">
           <div className="form-group">
-            <label htmlFor="name">list name</label>
+            <label htmlFor="item">item</label>
             <input
               type="text"
               required
               className="form-control"
               onChange={this.handleFieldChange}
-              id="name"
-              value={this.state.name}
+              id="item"
+              value={this.state.item}
             />
           </div>
           <button
             type="submit"
-            onClick={this.updateExistingList}
+            onClick={this.updateExistingListItem}
             className="btn btn-primary"
           >
             Submit

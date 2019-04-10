@@ -1,6 +1,6 @@
 const ListItemManager = {
-    getAllListItems: (itemId, listId) => {
-        return fetch (`http://localhost:5002/listItems?${itemId}&${listId}`)
+    getAllListItems: (id, listId) => {
+        return fetch (`http://localhost:5002/listItems?/${id}&${listId}`)
         .then(listItems => listItems.json())
     },
 

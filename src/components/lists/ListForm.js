@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import addListItem from '../../modules/ListItemManager'
-import ListItems from './ListItems';
-import getAllListItems from '../../modules/ListItemManager'
+// import addListItem from '../../modules/ListItemManager'
+// import ListItems from './ListItems';
+// import getAllListItems from '../../modules/ListItemManager'
 
 
 class ListForm extends Component {
@@ -26,12 +26,8 @@ class ListForm extends Component {
       listId: this.state.id,
       itemId: this.state.item.itemId
     }
-    if(this.state.id > 0) {
     this.props.addListItem(listItem)
     this.setState(listItem)
-    } else {
-      window.alert("Please create a list")
-    }
     console.log(listItem)
 
     // .then((listItem)=> {
@@ -86,7 +82,7 @@ class ListForm extends Component {
             onClick={this.constructList}
             className="btn btn-primary"
           >
-            +
+            Submit
           </button>
           {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
          <h5 className="item-info">{item.item}   <button
