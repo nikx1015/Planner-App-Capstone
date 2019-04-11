@@ -22,11 +22,11 @@ export default class ListDetail extends Component {
 
       <section className="list">
 
-        {this.props.lists.map(singleList => {
-          console.log(singleList)
-          return (
-            <div key={singleList.id}>
-              <h4>{singleList.name}</h4>
+        {/* {this.props.lists.map(singleList => {
+          console.log(singleList) */}
+
+            <div key={list.id}>
+              <h4>{list.name}</h4>
 
               <section>
                 {this.props.listItems
@@ -97,8 +97,7 @@ export default class ListDetail extends Component {
 
             </div>
 
-          )
-        })}
+
       </section>
     );
   }

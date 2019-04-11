@@ -14,6 +14,11 @@ const ListItemManager = {
   //     .then(listItems => listItems.json())
   // },
 
+//   getAllListItems: (itemId, listId) => {
+//     return fetch (`http://localhost:5002/listItems?${itemId}&${listId}`)
+//     .then(listItems => listItems.json())
+// },
+
 getOneListItem: id =>
 fetch(`http://localhost:5002/listItems/${id}`).then(listItems => listItems.json()),
 put(editedListItem) {

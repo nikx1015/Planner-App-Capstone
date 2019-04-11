@@ -11,29 +11,8 @@
       "id": 2
     }
   ],
-  "lists": [
-    {
-      "name": "I'm a list!",
-      "userId": "2",
-      "id": 1
-    },
-    {
-      "name": "I'm a list!!",
-      "userId": "2",
-      "id": 2
-    }
-  ],
-  "listItems": [
-    {
-      "id": 1,
-      "item": "an item!"
-    },
-    {
-      "item": "A new item",
-      "listId": "1",
-      "id": 2
-    }
-  ],
+  "lists": [],
+  "listItems": [],
   "notes": [
     {
       "id": 1,

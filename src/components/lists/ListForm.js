@@ -7,8 +7,8 @@ import React, { Component } from 'react';
 class ListForm extends Component {
 
   state = {
-    name: "",
-    showInputField: false
+    name: ""
+    // showInputField: false
   };
 
   // Update state whenever an input field is edited
@@ -18,24 +18,33 @@ class ListForm extends Component {
     this.setState(stateToChange);
   };
 
-  // constructListItem  = evt => {
-  //   evt.preventDefault();
+  constructListItem  = evt => {
+    evt.preventDefault();
 
-  //   const listItem = {
-  //     item: this.state.item,
-  //     listId: this.state.listId,
-  //     itemId: this.state.item.itemId
-  //   }
-  //   this.props.addListItem(listItem)
-  //   this.setState(listItem)
-  //   console.log(listItem)
+    const listItem = {
+      item: this.state.item,
+      listId: this.state.id,
+      itemId: this.state.item.itemId
+    }
+    // this.props.addListItem(listItem)
+    // this.setState(listItem)
+    // console.log(listItem)
 
-  //   // .then((listItem)=> {
-  //   //   console.log(listItem)
-  //   //     })
+    //if(this.state.listId > 0) {
 
-  //   console.log(this.state)
-  // }
+      this.setState(listItem)
+      this.props.addListItem(listItem)
+      // } else {
+      //   window.alert("Please create a list")
+      // }
+      console.log(listItem)
+
+    // .then((listItem)=> {
+    //   console.log(listItem)
+    //     })
+
+    console.log(this.state)
+  }
   /*
         Local method for validation, creating object, and
         invoking the function reference passed from parent component
@@ -46,7 +55,8 @@ class ListForm extends Component {
 
     const list = {
       name: this.state.name,
-      userId: sessionStorage.getItem("credentials")
+      userId: sessionStorage.getItem("credentials"),
+      listId: this.state.listId
     }
 
     this.props.addList(list)
@@ -57,7 +67,7 @@ class ListForm extends Component {
         console.log(listObject)
         this.setState(listObject);
         console.log(this.state)
-        this.props.history.push("/lists");
+        this.props.history.push(`/lists/new`);
 
         // this.state.showInputField === true
       }
@@ -65,6 +75,8 @@ class ListForm extends Component {
 
 
   render() {
+
+
     return (
       <React.Fragment>
         <form className="listForm">
@@ -86,7 +98,7 @@ class ListForm extends Component {
           >
             Submit
           </button>
-          {/* {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
+          {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
          <h5 className="item-info">{item.item}   <button
               href="#"
               className="btn btn-danger"
@@ -119,7 +131,7 @@ class ListForm extends Component {
             className="btn btn-primary"
           >
             Add Item
-          </button> */}
+          </button>
 
         </form>
       </React.Fragment>

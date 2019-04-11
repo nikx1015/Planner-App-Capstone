@@ -38,11 +38,11 @@ class ApplicationViews extends Component {
 
     isAuthenticated = () => true;
 
-    displayPlan = () =>
-    PlanManager.getAll().then(plans =>
-        this.setState({
-            plans: plans
-        }));
+    // displayPlan = () =>
+    // PlanManager.getAll().then(plans =>
+    //     this.setState({
+    //         plans: plans
+    //     }));
 
     postPlan = (PlanObject) =>
         PlanManager.postPlan(PlanObject)
@@ -94,7 +94,10 @@ class ApplicationViews extends Component {
 
     addList = (ListObject) =>
         ListManager.addList(ListObject)
-        .then(() => ListManager.getAllLists())
+        // .then(() => ListManager.getAllLists()).then(lists =>
+        //     this.setState({
+        //         lists: lists
+        //     }))
 
 
 
