@@ -4,7 +4,8 @@ import "./List.css"
 export default class ListItemEditForm extends Component {
   // Set initial state
   state = {
-    item: ""
+    item: "",
+    listId: this.props.match.params.listId
   };
 
   handleFieldChange = evt => {
@@ -24,7 +25,7 @@ export default class ListItemEditForm extends Component {
 
       this.props
         .updateListItem(editedItem)
-        .then(() => this.props.history.push("/lists/new"));
+        .then(() => this.props.history.push(`/lists`));
     }
 
 
@@ -32,7 +33,7 @@ export default class ListItemEditForm extends Component {
     ListItemManager.getOneListItem(this.props.match.params.itemId).then(item => {
       this.setState({
         item: item.item,
-        listId: item.listId
+        listId: this.props.match.params.listId
       });
     });
   }

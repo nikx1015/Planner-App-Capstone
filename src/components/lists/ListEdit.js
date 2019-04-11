@@ -4,7 +4,8 @@ import "./List.css"
 export default class ListEditForm extends Component {
   // Set initial state
   state = {
-    name: ""
+    name: "",
+    userId: ""
   };
 
   handleFieldChange = evt => {
@@ -19,7 +20,7 @@ export default class ListEditForm extends Component {
       const editedList = {
         id: this.props.match.params.listId,
         name: this.state.name,
-        userId: this.state.userId
+        userId: sessionStorage.getItem("credentials")
       };
 
       this.props
@@ -31,7 +32,8 @@ export default class ListEditForm extends Component {
   componentDidMount() {
     ListManager.getOneList(this.props.match.params.listId).then(list => {
       this.setState({
-        name: list.name
+        name: list.name,
+        userId: this.state.userId
       });
     });
   }

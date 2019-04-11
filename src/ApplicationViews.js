@@ -94,6 +94,8 @@ class ApplicationViews extends Component {
 
     addList = (ListObject) =>
         ListManager.addList(ListObject)
+        .then(() => ListManager.getAllLists())
+
 
 
     deleteList = id => {
@@ -245,7 +247,7 @@ class ApplicationViews extends Component {
                             return (
                                 <EditListItems
                                     {...props}
-                                    updateListItem={this.updateListItem} listItems={this.state.listItems}
+                                    updateListItem={this.updateListItem} listItems={this.state.listItems} lists={this.state.lists}
                                 />
                             )
                         } else {

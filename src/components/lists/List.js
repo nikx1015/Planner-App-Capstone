@@ -18,6 +18,7 @@ export default class List extends Component {
     <h6 className="list-body-name">{list.name}</h6>
     </div>
     <Link className="nav-link" to={`/lists/${list.id}`}>Details</Link>
+
     </section>
     </div>
 

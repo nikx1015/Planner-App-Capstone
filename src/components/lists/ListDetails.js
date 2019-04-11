@@ -30,7 +30,7 @@ export default class ListDetail extends Component {
 
               <section>
                 {this.props.listItems
-                  // .filter(listItem => listItem.listId === singleList.id)
+                  //.filter(listItem => listItem.listId === singleList.id)
                   .map(item =>
                     //console.log(item)
                     <ListItems key={item.id} listItems={this.props.listItems}

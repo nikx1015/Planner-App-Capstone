@@ -13,20 +13,25 @@
   ],
   "lists": [
     {
-      "name": "I'm a new list that should be working and things.",
+      "name": "I'm a list!",
       "userId": "2",
       "id": 1
+    },
+    {
+      "name": "I'm a list!!",
+      "userId": "2",
+      "id": 2
     }
   ],
   "listItems": [
     {
-      "id": 2,
-      "item": "Yay, I work!!"
+      "id": 1,
+      "item": "an item!"
     },
     {
-      "item": "an item!",
+      "item": "A new item",
       "listId": "1",
-      "id": 3
+      "id": 2
     }
   ],
   "notes": [
@@ -40,6 +45,12 @@
       "id": 2,
       "title": "New Note",
       "description": "Notes",
+      "date": ""
+    },
+    {
+      "id": 3,
+      "title": "New note",
+      "description": "note",
       "date": ""
     }
   ],

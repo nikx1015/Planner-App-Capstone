@@ -18,24 +18,24 @@ class ListForm extends Component {
     this.setState(stateToChange);
   };
 
-  constructListItem  = evt => {
-    evt.preventDefault();
+  // constructListItem  = evt => {
+  //   evt.preventDefault();
 
-    const listItem = {
-      item: this.state.item,
-      listId: this.state.listId,
-      itemId: this.state.item.itemId
-    }
-    this.props.addListItem(listItem)
-    this.setState(listItem)
-    console.log(listItem)
+  //   const listItem = {
+  //     item: this.state.item,
+  //     listId: this.state.listId,
+  //     itemId: this.state.item.itemId
+  //   }
+  //   this.props.addListItem(listItem)
+  //   this.setState(listItem)
+  //   console.log(listItem)
 
-    // .then((listItem)=> {
-    //   console.log(listItem)
-    //     })
+  //   // .then((listItem)=> {
+  //   //   console.log(listItem)
+  //   //     })
 
-    console.log(this.state)
-  }
+  //   console.log(this.state)
+  // }
   /*
         Local method for validation, creating object, and
         invoking the function reference passed from parent component
@@ -50,12 +50,14 @@ class ListForm extends Component {
     }
 
     this.props.addList(list)
+
     // this.props.addListItem()
 
       .then((listObject) => {
         console.log(listObject)
         this.setState(listObject);
         console.log(this.state)
+        this.props.history.push("/lists");
 
         // this.state.showInputField === true
       }
@@ -84,7 +86,7 @@ class ListForm extends Component {
           >
             Submit
           </button>
-          {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
+          {/* {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
          <h5 className="item-info">{item.item}   <button
               href="#"
               className="btn btn-danger"
@@ -117,7 +119,7 @@ class ListForm extends Component {
             className="btn btn-primary"
           >
             Add Item
-          </button>
+          </button> */}
 
         </form>
       </React.Fragment>
