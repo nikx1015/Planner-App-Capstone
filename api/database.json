@@ -13,20 +13,20 @@
   ],
   "lists": [
     {
-      "name": "I'm a list!",
+      "name": "I'm a new list that should be working and things.",
       "userId": "2",
       "id": 1
     }
   ],
   "listItems": [
     {
-      "name": "I'm a list!",
-      "id": 1
+      "id": 2,
+      "item": "Yay, I work!!"
     },
     {
-      "name": "I'm a list!",
+      "item": "an item!",
       "listId": "1",
-      "id": 2
+      "id": 3
     }
   ],
   "notes": [

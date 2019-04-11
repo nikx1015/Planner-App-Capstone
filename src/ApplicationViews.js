@@ -213,7 +213,7 @@ class ApplicationViews extends Component {
                     path="/lists"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <List {...props} lists={this.state.lists}
+                            return <List {...props} lists={this.state.lists} listItems={this.state.listItems}
                             />;
                         } else {
                             Auth0Client.signIn();
@@ -226,7 +226,7 @@ class ApplicationViews extends Component {
                     path="/listItems"
                     render={props => {
 
-                            return <ListItems {...props} lists={this.state.lists} items={this.state.items} addListItem={this.addListItem} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem}
+                            return <ListItems {...props} lists={this.state.lists} listItems={this.state.listItems}
                             />;
                     }}
                 />
@@ -245,7 +245,7 @@ class ApplicationViews extends Component {
                             return (
                                 <EditListItems
                                     {...props}
-                                    updateListItem={this.updateListItem} items={this.state.items}
+                                    updateListItem={this.updateListItem} listItems={this.state.listItems}
                                 />
                             )
                         } else {
@@ -273,7 +273,7 @@ class ApplicationViews extends Component {
                 />
                 <Route exact path="/lists/:listId(\d+)" render={(props) => {
 
-                    return (<ListDetail {...props} deleteList={this.deleteList} lists={this.state.lists} updateList={this.updateList} />
+                    return (<ListDetail {...props} deleteList={this.deleteList} lists={this.state.lists} updateList={this.updateList} listItems={this.state.listItems} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem}/>
                     )
                 }} />
                 <Route
@@ -320,13 +320,6 @@ class ApplicationViews extends Component {
                     }}
                 />
 
-                <Route
-                    exact
-                    path="/listItems"
-                    render={props => {
-                        return <ListItemForm {...props} addItem={this.addListItem} listItems={this.state.listItems} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem}/>;
-                    }}
-                />
                 <Route
                     exact
                     path="/calendar"

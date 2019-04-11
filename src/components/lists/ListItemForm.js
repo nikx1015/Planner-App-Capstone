@@ -5,7 +5,7 @@ import list from './ListForm'
 class ListItemForm extends Component {
 
   state = {
-    name: "",
+    item: "",
     listId: this.props.match.params.listId
   };
 
@@ -24,7 +24,7 @@ class ListItemForm extends Component {
     evt.preventDefault();
 
       const listItems = {
-        name: this.state.name,
+        item: this.state.item,
         listId: this.state.listId,
         itemId: this.state.itemId
 
@@ -42,14 +42,14 @@ class ListItemForm extends Component {
       <React.Fragment>
         <form className="listItemForm">
           <div className="form-group">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="item">item</label>
             <input
               type="text"
               required
               className="form-control"
               onChange={this.handleFieldChange}
-              id="name"
-              placeholder="list item name"
+              id="item"
+              placeholder="list item"
             />
           </div>
           <button

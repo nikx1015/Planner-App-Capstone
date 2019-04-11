@@ -1,8 +1,18 @@
 const ListItemManager = {
-    getAllListItems: (id, listId) => {
-        return fetch (`http://localhost:5002/listItems?/${id}&${listId}`)
-        .then(listItems => listItems.json())
-    },
+
+  getAllListItems: () => {
+    return fetch ("http://localhost:5002/listItems")
+    .then(listItems => listItems.json())
+},
+    // getAllListItems: (listId) => {
+    //     return fetch (`http://localhost:5002/listItems?listId=${listId}`)
+    //     .then(listItems => listItems.json())
+    // },
+
+  //   getAllListItems: (itemId, listId) => {
+  //     return fetch (`http://localhost:5002/listItems?itemId=${itemId}&listId=${listId}`)
+  //     .then(listItems => listItems.json())
+  // },
 
 getOneListItem: id =>
 fetch(`http://localhost:5002/listItems/${id}`).then(listItems => listItems.json()),
