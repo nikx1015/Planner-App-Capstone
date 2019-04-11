@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import addListItem from '../../modules/ListItemManager'
-import ListItems from './ListItems';
-import getAllListItems from '../../modules/ListItemManager'
+// import addListItem from '../../modules/ListItemManager'
+// import ListItems from './ListItems';
+// import getAllListItems from '../../modules/ListItemManager'
 
 
 class ListForm extends Component {
 
   state = {
-    name: "",
-    showInputField: false
+    name: ""
+    // showInputField: false
   };
 
   // Update state whenever an input field is edited
@@ -24,11 +24,20 @@ class ListForm extends Component {
     const listItem = {
       item: this.state.item,
       listId: this.state.id,
-      itemId: this.state.itemId
+      itemId: this.state.item.itemId
     }
-    this.props.addListItem(listItem)
-    this.setState(listItem)
-    console.log(listItem)
+    // this.props.addListItem(listItem)
+    // this.setState(listItem)
+    // console.log(listItem)
+
+    //if(this.state.listId > 0) {
+
+      this.setState(listItem)
+      this.props.addListItem(listItem)
+      // } else {
+      //   window.alert("Please create a list")
+      // }
+      console.log(listItem)
 
     // .then((listItem)=> {
     //   console.log(listItem)
@@ -46,16 +55,19 @@ class ListForm extends Component {
 
     const list = {
       name: this.state.name,
-      userId: sessionStorage.getItem("credentials")
+      userId: sessionStorage.getItem("credentials"),
+      listId: this.state.listId
     }
 
     this.props.addList(list)
+
     // this.props.addListItem()
 
       .then((listObject) => {
         console.log(listObject)
         this.setState(listObject);
         console.log(this.state)
+        this.props.history.push(`/lists/new`);
 
         // this.state.showInputField === true
       }
@@ -63,6 +75,8 @@ class ListForm extends Component {
 
 
   render() {
+
+
     return (
       <React.Fragment>
         <form className="listForm">

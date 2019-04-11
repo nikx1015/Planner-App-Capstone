@@ -7,7 +7,8 @@ export default class PlanForm extends Component {
     state = {
       name: "",
       description: "",
-      date: ""
+      date: "",
+      userId: ""
     };
 
     // Update state whenever an input field is edited
@@ -30,8 +31,8 @@ export default class PlanForm extends Component {
         const plan = {
           name: this.state.name,
           description: this.state.description,
-          date: this.state.date
-          // userId: sessionStorage.getItem("credentials")
+          date: this.state.date,
+          userId: sessionStorage.getItem("credentials")
           // Make sure the employeeId is saved to the database as a number since it is a foreign key.
         }
 
@@ -68,13 +69,13 @@ export default class PlanForm extends Component {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="dueDate">Due Date</label>
+              <label htmlFor="date">Date</label>
               <input
                 type="date"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="dueDate"
+                id="date"
               />
             </div>
             <button

@@ -20,6 +20,4 @@
 .notesButton {
     display: flex;
     justify-content: space-evenly;
-    margin: 20px, 0, 40px, 0;
-    padding: 5rem;
   }

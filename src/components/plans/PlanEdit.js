@@ -49,7 +49,7 @@ export default class PlanEditForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="planForm">
+        <form className="planEditForm">
           <div className="form-group">
             <label htmlFor="Name">Plan Name</label>
             <input

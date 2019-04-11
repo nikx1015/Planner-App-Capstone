@@ -1,5 +1,6 @@
 import { Route } from 'react-router-dom'
 import React, { Component } from "react"
+import './components/Planner.css'
 import Plans from './components/plans/Plans'
 import PlanEdit from './components/plans/PlanEdit'
 import PlanForm from './components/plans/PlanForm'
@@ -9,14 +10,13 @@ import NoteEdit from './components/notes/NotesEdit'
 import NoteForm from './components/notes/NotesForm'
 import NoteDetail from './components/notes/NoteDetails'
 import List from './components/lists/List'
-import EditListItems from './components/lists/ListEdit'
+import EditList from './components/lists/ListEdit'
 import ListForm from './components/lists/ListForm'
 import ListDetail from './components/lists/ListDetails'
 import ListItemForm from './components/lists/ListItemForm'
 import ListItems from './components/lists/ListItems'
-// import EditListItems from './components/lists/EditListItems'
+import EditListItems from './components/lists/ListItemEdit'
 // import ListItemDetails from './components/lists/ListItemDetails'
-// import Calendar from './components/calendar/Calendar'
 import PlanManager from './modules/PlanManager'
 import ListManager from './modules/ListManager'
 import NotesManager from './modules/NotesManager'
@@ -24,6 +24,7 @@ import ListItemManager from './modules/ListItemManager'
 // import UserManager from './modules/UserManager'
 import Callback from './components/authentication/Callback'
 import Auth0Client from './components/authentication/Auth'
+import Calendar from './components/calendar/Calendar'
 
 class ApplicationViews extends Component {
 
@@ -34,6 +35,15 @@ class ApplicationViews extends Component {
         notes: [],
         plans: []
     }
+
+    isAuthenticated = () => true;
+
+    // displayPlan = () =>
+    // PlanManager.getAll().then(plans =>
+    //     this.setState({
+    //         plans: plans
+    //     }));
+
     postPlan = (PlanObject) =>
         PlanManager.postPlan(PlanObject)
             .then(() => PlanManager.getAll()).then(plans =>
@@ -49,7 +59,7 @@ class ApplicationViews extends Component {
         );
     };
     updatePlan = (editedPlanObject) => {
-        return PlanManager.put(editedPlanObject)
+        return PlanManager.updatePlan(editedPlanObject)
             .then(() => PlanManager.getAll())
             .then(plans => {
                 this.setState({
@@ -84,6 +94,11 @@ class ApplicationViews extends Component {
 
     addList = (ListObject) =>
         ListManager.addList(ListObject)
+        // .then(() => ListManager.getAllLists()).then(lists =>
+        //     this.setState({
+        //         lists: lists
+        //     }))
+
 
 
     deleteList = id => {
@@ -158,6 +173,7 @@ class ApplicationViews extends Component {
         return (
             <div className="container-div">
                 <Route exact path="/callback" component={Callback} />
+
                 {/* <Route exact path="/" render={(props) => {
                     return <Plans {...props} plans={this.state.plans} />
                 }} /> */}
@@ -169,7 +185,7 @@ class ApplicationViews extends Component {
                     path="/plans"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <Plans {...props} plans={this.state.plans} />;
+                            return <Plans {...props} plans={this.state.plans} calendar={this.state.Calendar}/>;
                         } else {
                             Auth0Client.signIn();
                             return null;
@@ -202,7 +218,7 @@ class ApplicationViews extends Component {
                     path="/lists"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <List {...props} lists={this.state.lists} items={this.state.items}
+                            return <List {...props} lists={this.state.lists} listItems={this.state.listItems}
                             />;
                         } else {
                             Auth0Client.signIn();
@@ -215,7 +231,7 @@ class ApplicationViews extends Component {
                     path="/listItems"
                     render={props => {
 
-                            return <ListItems {...props} lists={this.state.lists} items={this.state.items} addListItem={this.addListItem} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem}
+                            return <ListItems {...props} lists={this.state.lists} listItems={this.state.listItems}
                             />;
                     }}
                 />
@@ -234,8 +250,24 @@ class ApplicationViews extends Component {
                             return (
                                 <EditListItems
                                     {...props}
-                                    // news={this.state.news}
-                                    updateListItem={this.updateListItem} items={this.state.items}
+                                    updateListItem={this.updateListItem} listItems={this.state.listItems} lists={this.state.lists}
+                                />
+                            )
+                        } else {
+                            Auth0Client.signIn();
+                            return null;
+                        }
+                    }}
+                />
+
+<Route
+                    exact path="/lists/:listId(\d+)/edit"
+                    render={props => {
+                        if (Auth0Client.isAuthenticated()) {
+                            return (
+                                <EditList
+                                    {...props}
+                                    updateList={this.updateList} lists={this.state.lists}
                                 />
                             )
                         } else {
@@ -246,7 +278,7 @@ class ApplicationViews extends Component {
                 />
                 <Route exact path="/lists/:listId(\d+)" render={(props) => {
 
-                    return (<ListDetail {...props} deleteList={this.deleteList} lists={this.state.lists} />
+                    return (<ListDetail {...props} deleteList={this.deleteList} lists={this.state.lists} updateList={this.updateList} listItems={this.state.listItems} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem}/>
                     )
                 }} />
                 <Route
@@ -287,31 +319,24 @@ class ApplicationViews extends Component {
                 />
                 <Route
                     exact
-                    path="/listItems/new"
+                    path="/listItems/:listId/new"
                     render={props => {
-                        return <ListItemForm {...props} addItem={this.addListItem} listItems={this.state.listItems} />;
+                        return <ListItemForm {...props} lists={this.state.lists} addListItem={this.addListItem} listItems={this.state.listItems} />;
                     }}
                 />
 
                 <Route
                     exact
-                    path="/listItems"
-                    render={props => {
-                        return <ListItemForm {...props} addItem={this.addListItem} listItems={this.state.listItems} />;
-                    }}
-                />
-                {/* <Route
-                    exact
                     path="/calendar"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <Calendar {...props} calendar={this.state.calendar} />;
+                            return <Calendar {...props} calendar={this.state.calendar} plans={this.state.plans}/>;
                         } else {
                             Auth0Client.signIn();
                             return null;
                         }
                     }}
-                /> */}
+                />
             </div>
         )
     }

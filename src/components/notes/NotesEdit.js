@@ -6,7 +6,8 @@ export default class NoteEditForm extends Component {
   state = {
     title: "",
     description: "",
-    date: ""
+    date: "",
+    userId: ""
   };
 
   handleFieldChange = evt => {

@@ -19,11 +19,14 @@ class Plans extends Component {
                     </Button>
 
                     </div>
-                    <section className="plans">
+                    <section className="sort-plans">
                     {
 
 
                         this.props.plans.sort((a, b) => a.date > b.date ? 1 : -1).map(plan =>
+                            {
+                                if (plan.userId === sessionStorage.getItem('credentials')) {
+                                return (
 
                             <div key={plan.id} className="plans-card">
                                 <div className="plans-card-body">
@@ -37,7 +40,9 @@ class Plans extends Component {
                                     </h5>
                                 </div>
                             </div>
-                        )}
+                            )
+
+                        }})}
 
                 </section>
                 </section>

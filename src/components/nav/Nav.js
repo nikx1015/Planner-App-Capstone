@@ -38,6 +38,11 @@ class NavBar extends Component {
                  Notes
                </Link>
              </li>
+             <li className="nav-item">
+               <Link className="nav-link" to="/calendar">
+                 Calendar
+               </Link>
+             </li>
            </ul>
            {!auth0Client.isAuthenticated() ? (
          <button className="btn btn-success" onClick={auth0Client.signIn}>
