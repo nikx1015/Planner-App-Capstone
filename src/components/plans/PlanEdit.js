@@ -6,7 +6,8 @@ export default class PlanEditForm extends Component {
   state = {
     name: "",
     description: "",
-    date: ""
+    date: "",
+    userId: ""
   };
 
   handleFieldChange = evt => {
@@ -26,7 +27,7 @@ export default class PlanEditForm extends Component {
         name: this.state.name,
         description: this.state.description,
         date: this.state.date,
-        userId: this.state.userId
+        userId: sessionStorage.getItem("credentials")
         // newsId: parseInt(this.state.newsId)
       };
 
@@ -41,7 +42,8 @@ export default class PlanEditForm extends Component {
       this.setState({
         name: plan.name,
         description: plan.description,
-        date: plan.date
+        date: plan.date,
+        userId: this.state.userId
       });
     });
   }

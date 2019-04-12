@@ -26,7 +26,8 @@ class ListItemForm extends Component {
       const listItems = {
         item: this.state.item,
         listId: this.state.listId,
-        itemId: this.state.itemId
+        itemId: this.state.itemId,
+        complete: this.state.complete
 
       }
 

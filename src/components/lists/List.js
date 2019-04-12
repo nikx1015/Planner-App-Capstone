@@ -17,7 +17,14 @@ export default class List extends Component {
     <div className="list-body">
     <h6 className="list-body-name">{list.name}</h6>
     </div>
-    <Link className="nav-link" to={`/lists/${list.id}`}>Details</Link>
+    <Button variant="outline-dark" type="submit"
+                            onClick={() => {
+                                this.props.history.push(`/lists/${list.id}`)
+                            }
+                            }>
+                            Details
+                    </Button>
+    {/* <Link className="nav-link" to={`/lists/${list.id}`}>Details</Link> */}
 
     </section>
     </div>

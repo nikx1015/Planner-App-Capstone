@@ -22,4 +22,13 @@
 .listButton {
     display: flex;
     justify-content: space-evenly;
+    border-radius: 50%;
   }
+.btn {
+    display: inline-flex;
+    justify-content: space-evenly;
+    /* padding: 1rem; */
+}
+.btn-success {
+    background-color: gray;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 export default class NoteDetail extends Component{
     render() {
@@ -21,7 +22,14 @@ export default class NoteDetail extends Component{
   </Card.Body>
 </Card>
 
-<button
+<Button variant="outline-danger" type="submit"
+                            onClick={() => { this.props.deleteNote(notes.id)
+                                .then(()=>this.props.history.push("/notes"))
+                            }
+                            }>
+                            Delete
+                    </Button>
+{/* <button
               href="#"
               className="btn btn-danger"
               onClick={() =>
@@ -31,7 +39,7 @@ export default class NoteDetail extends Component{
               }
             >
               Delete
-            </button>
+            </button> */}
             <button
               type="button"
               className="btn btn-success"

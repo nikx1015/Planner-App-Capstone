@@ -7,8 +7,7 @@ export default class PlanForm extends Component {
     state = {
       name: "",
       description: "",
-      date: "",
-      userId: ""
+      date: ""
     };
 
     // Update state whenever an input field is edited

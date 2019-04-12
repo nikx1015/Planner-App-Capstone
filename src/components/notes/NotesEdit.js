@@ -27,7 +27,7 @@ export default class NoteEditForm extends Component {
         title: this.state.title,
         description: this.state.description,
         date: this.state.date,
-        userId: this.state.userId
+        userId: sessionStorage.getItem("credentials")
         // newsId: parseInt(this.state.newsId)
       };
 
@@ -42,7 +42,8 @@ export default class NoteEditForm extends Component {
       this.setState({
         title: note.title,
         description: note.description,
-        date: note.date
+        date: note.date,
+        userId: this.state.userId
       });
     });
   }

@@ -8,6 +8,15 @@ import ListItems from './ListItems'
 
 
 export default class ListDetail extends Component {
+  handleCheckbox = evt => {
+    evt.preventDefault();
+    const completeListItem = {
+      complete: true
+    };
+    this.props.completeListItem(completeListItem, this.props.match.params.itemId);
+  };
+
+
   render() {
     /*
         Using the route parameter, find the event that the
@@ -38,16 +47,31 @@ export default class ListDetail extends Component {
 
                   )}
                   {this.props.listItems.map (item => <div key={item.id} className="items"><div className="itemList">
-         <h5 className="item-info">{item.item}   <button
+         <h5 className="item-info">{item.item}
+         <input
+                  type="checkbox"
+                  onChange={() =>
+                    this.props.completeListItem({ complete: true }, item.id)
+                  }
+                />
+         <Button variant="outline-danger" type="submit"
+                            onClick={() => { this.props.deleteListItem(item.id)
+                            }
+                            }>
+                            Delete
+                    </Button>
+         {/* <button
               href="#"
               className="btn btn-danger"
               onClick={() =>
                 this.props
                   .deleteListItem(item.id)
               }
-            >
-              Delete
-            </button>
+            > Delete
+
+            </button> */}
+
+
             <button
               type="button"
               className="btn btn-success"
@@ -64,17 +88,24 @@ export default class ListDetail extends Component {
 
 
 
-              <button
+              {/* <button
                 href="#"
-                className="btn btn-danger"
+                className= "btn btn-danger"
                 onClick={() =>
                   this.props
                     .deleteList(list.id)
                     .then(() => this.props.history.push("lists"))
                 }
               >
-                Delete
-            </button>
+              Delete
+            </button> */}
+            <Button variant="outline-danger" type="submit"
+                            onClick={() => { this.props.deleteList(list.id)
+                                .then(() => this.props.history.push(`/lists/${list.id}`))
+                            }
+                            }>
+                            Delete
+                    </Button>
               <button
                 type="button"
                 className="btn btn-success"
@@ -92,7 +123,7 @@ export default class ListDetail extends Component {
                   this.props.history.push(`/listItems/${this.props.match.params.listId}/new`)
                 }
                 }>
-                Add New List Items
+                + Items
                     </Button>
 
             </div>
