@@ -11,8 +11,37 @@
       "id": 2
     }
   ],
-  "lists": [],
-  "listItems": [],
-  "notes": [],
-  "plans": []
+  "lists": [
+    {
+      "name": "I'm a list!",
+      "userId": "2",
+      "id": 1
+    }
+  ],
+  "listItems": [
+    {
+      "item": "an item",
+      "listId": 1,
+      "complete": false,
+      "id": 1
+    }
+  ],
+  "notes": [
+    {
+      "title": "Note",
+      "description": "New Note",
+      "date": "2019-12-31",
+      "userId": "2",
+      "id": 1
+    }
+  ],
+  "plans": [
+    {
+      "name": "Things",
+      "description": "Things",
+      "date": "2019-12-31",
+      "userId": "2",
+      "id": 1
+    }
+  ]
 }

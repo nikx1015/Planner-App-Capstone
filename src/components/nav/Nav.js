@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import auth0Client from "../authentication/Auth";
+import './Nav.css'
 
 class NavBar extends Component {
  signOut = () => {
@@ -20,12 +21,12 @@ class NavBar extends Component {
            <ul className="nav nav-pills">
              <li className="nav-item">
                <Link className="nav-link" to="/">
-                 Planner
+                 Home
                </Link>
              </li>
              <li className="nav-item">
                <Link className="nav-link" to="/plans">
-                 Daily Planner
+                 Events
                </Link>
              </li>
              <li className="nav-item">

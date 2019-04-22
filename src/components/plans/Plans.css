@@ -5,19 +5,33 @@
 
 .plans-card {
     width: 10rem;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    font-weight: lighter;
 }
 .plans-card-title {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    font-weight: lighter;
 }
-
+.plans-card-body {
+    align-content: center;
+    font-weight: lighter;
+}
 .plans-card-link {
     margin: 12px 0 0 0;
     font-size: 0.7em;
 }
-.plansButton {
+/* .plansButton {
     display: flex;
     justify-content: space-evenly;
+  } */
+  .plans-link {
+      border-top: 1px solid gray;
+      text-transform: uppercase;
+      font-weight: bold;
   }

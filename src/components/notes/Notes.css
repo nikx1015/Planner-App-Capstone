@@ -5,23 +5,38 @@
 
 .notes-card {
     width: 10rem;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    font-weight: lighter;
 }
 .notes-card-title {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    font-weight: lighter;
 }
 
 .notes-card-link {
     margin: 12px 0 0 0;
     font-size: 0.7em;
 }
-.notesButton {
+.notes-card-body {
+    align-content: center;
+    font-weight: lighter;
+}
+/* .notesButton {
     display: flex;
     justify-content: space-evenly;
-  }
+  } */
 
   .btn-success {
       background-color: gray;
   }
+  .notes-link {
+    border-top: 1px solid gray;
+    text-transform: uppercase;
+    font-weight: bold;
+}

@@ -1,0 +1,33 @@
+li {
+    border-right: 1px solid;
+    border-color: silver;
+    padding-right: 30px;
+    padding-left: 30px;
+    color: black;
+    text-transform: uppercase;
+}
+.navbar {
+    display:  inline-flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.nav-pills {
+    justify-content: space-evenly;
+}
+a:link {
+    color: black;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: slategray;
+    text-emphasis: bold;
+    background-color: lightgray;
+}
+.btn-danger {
+    background-color:#26454f;
+    text-transform: uppercase;
+    border-color: black;
+}
+
