@@ -5,8 +5,6 @@ import Button from 'react-bootstrap/Button';
 import ListForm from './ListForm'
 import ListItems from './ListItems'
 
-
-
 export default class ListDetail extends Component {
   handleCheckbox = evt => {
     evt.preventDefault();

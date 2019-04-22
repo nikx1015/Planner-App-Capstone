@@ -15,7 +15,7 @@ class Plans extends Component {
                                 this.props.history.push("/plans/new")
                             }
                             }>
-                            Add New Plan
+                            Add New Event
                     </Button>
 
                     </div>
