@@ -8,7 +8,7 @@ export default class List extends Component {
     render() {
         return (
             <React.Fragment>
-<section className="List">
+<section className="list">
 {this.props.lists.map(list => {
     if (list.userId === sessionStorage.getItem('credentials')) {
     return (
