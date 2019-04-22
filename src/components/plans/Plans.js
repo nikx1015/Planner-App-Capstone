@@ -29,7 +29,7 @@ class Plans extends Component {
                                 return (
 
                             <div key={plan.id} className="plans-card">
-                                <div className="plans-card-body">
+                                <div className="sort-plans">
                                     <h4 className="plans-card-title">
                                         {plan.name}</h4>
 

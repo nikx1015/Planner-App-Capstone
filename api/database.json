@@ -13,35 +13,155 @@
   ],
   "lists": [
     {
-      "name": "I'm a list!",
+      "name": "To Do List",
       "userId": "2",
       "id": 1
     }
   ],
   "listItems": [
     {
-      "item": "an item",
-      "listId": 1,
-      "complete": false,
+      "item": "Call Vet",
+      "listId": "1",
       "id": 1
+    },
+    {
+      "item": "Call groomer",
+      "listId": "1",
+      "id": 2
+    },
+    {
+      "item": "Take blog post photos",
+      "listId": "1",
+      "id": 3
+    },
+    {
+      "item": "Pay for parking",
+      "listId": "1",
+      "id": 4
+    },
+    {
+      "item": "Write blog posts for May",
+      "listId": "1",
+      "id": 5
+    },
+    {
+      "item": "Schedule social media posts",
+      "listId": "1",
+      "id": 6
+    },
+    {
+      "item": "Turn in social media posts that are finished",
+      "listId": "1",
+      "id": 7
     }
   ],
   "notes": [
     {
-      "title": "Note",
-      "description": "New Note",
-      "date": "2019-12-31",
+      "title": "Call groomer",
+      "description": "Schedule appointment for Jin",
+      "date": "2019-04-22",
       "userId": "2",
       "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Groceries",
+      "description": "Go to the store to get groceries for the week",
+      "date": "2019-04-25",
+      "userId": "2"
+    },
+    {
+      "title": "Call vet",
+      "description": "Schedule vet appointment for Loki",
+      "date": "2019-04-25",
+      "userId": "2",
+      "id": 3
+    },
+    {
+      "title": "Pet food",
+      "description": "Pick up food for the pets",
+      "date": "2019-05-02",
+      "userId": "2",
+      "id": 4
+    },
+    {
+      "title": "parking pass",
+      "description": "pick up a new parking pass",
+      "date": "2019-05-01",
+      "userId": "2",
+      "id": 5
     }
   ],
   "plans": [
     {
-      "name": "Things",
-      "description": "Things",
-      "date": "2019-12-31",
+      "id": 2,
+      "name": "PR Meeting",
+      "description": "Meeting with Andromeda Creative",
+      "date": "2019-04-25",
+      "userId": "2"
+    },
+    {
+      "name": "Blog Post #1",
+      "description": "Blog post for Friday",
+      "date": "2019-04-26",
       "userId": "2",
-      "id": 1
+      "id": 4
+    },
+    {
+      "name": "Doc Appt",
+      "description": "Appointment with neurologist",
+      "date": "2019-05-10",
+      "userId": "2",
+      "id": 5
+    },
+    {
+      "name": "Social Posts",
+      "description": "Social Media posts due",
+      "date": "2019-04-30",
+      "userId": "2",
+      "id": 6
+    },
+    {
+      "name": "Blog Post #2",
+      "description": "Blog Post 2 due",
+      "date": "2019-05-02",
+      "userId": "2",
+      "id": 7
+    },
+    {
+      "name": "PR Meeting",
+      "description": "Meeting with Andromeda Creative",
+      "date": "2019-04-30",
+      "userId": "2",
+      "id": 8
+    },
+    {
+      "name": "Blog Post #3",
+      "description": "Blog post 3 due",
+      "date": "2019-05-05",
+      "userId": "2",
+      "id": 9
+    },
+    {
+      "name": "Appointment",
+      "description": "Nail Appointment",
+      "date": "2019-05-16",
+      "userId": "2",
+      "id": 10
+    },
+    {
+      "name": "Grooming Appt",
+      "description": "Appointment for haircut for Jin",
+      "date": "2019-05-07",
+      "userId": "2",
+      "id": 11
+    },
+    {
+      "name": "Anniversary",
+      "description": "9 Year Anniversary",
+      "date": "2019-05-15",
+      "userId": "2",
+      "id": 12
     }
   ]
 }

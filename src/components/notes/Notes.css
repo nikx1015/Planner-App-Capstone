@@ -1,13 +1,20 @@
 .notes{
+
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+
 }
 
 .notes-card {
     width: 10rem;
     border: 1px solid gray;
     display: flex;
-    justify-content: space-around;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-content: center;
     font-weight: lighter;
 }
@@ -26,6 +33,10 @@
 .notes-card-body {
     align-content: center;
     font-weight: lighter;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 /* .notesButton {
     display: flex;
