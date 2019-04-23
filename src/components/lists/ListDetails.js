@@ -48,7 +48,7 @@ export default class ListDetail extends Component {
          <h5 className="item-info">{item.item}
 
          <input
-                  type="checkbox"
+                  type="checkbox" className="checkbox"
                   onChange={() =>
                     this.props.completeListItem({ complete: true }, item.id)
 

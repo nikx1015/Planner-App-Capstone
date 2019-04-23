@@ -9,6 +9,7 @@
 
 .notes-card {
     width: 10rem;
+    margin: 1rem;
     border: 1px solid gray;
     display: flex;
     display: flex;

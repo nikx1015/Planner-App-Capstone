@@ -17,6 +17,7 @@
     font-weight: bold;
     text-transform: uppercase;
     border-bottom: 1px solid black;
+    font-size: 2rem;
 }
 .list-body-name {
     display: flex;

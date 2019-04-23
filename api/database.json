@@ -13,17 +13,12 @@
   ],
   "lists": [
     {
+      "id": 1,
       "name": "To Do List",
-      "userId": "2",
-      "id": 1
+      "userId": "2"
     }
   ],
   "listItems": [
-    {
-      "item": "Call Vet",
-      "listId": "1",
-      "id": 1
-    },
     {
       "item": "Call groomer",
       "listId": "1",
@@ -53,15 +48,20 @@
       "item": "Turn in social media posts that are finished",
       "listId": "1",
       "id": 7
+    },
+    {
+      "item": "Take Loki to Vet",
+      "listId": "1",
+      "id": 8
     }
   ],
   "notes": [
     {
+      "id": 1,
       "title": "Call groomer",
-      "description": "Schedule appointment for Jin",
+      "description": "Schedule appointment for Jin!",
       "date": "2019-04-22",
-      "userId": "2",
-      "id": 1
+      "userId": "2"
     },
     {
       "id": 2,
@@ -78,18 +78,32 @@
       "id": 3
     },
     {
-      "title": "Pet food",
-      "description": "Pick up food for the pets",
-      "date": "2019-05-02",
-      "userId": "2",
-      "id": 4
-    },
-    {
       "title": "parking pass",
       "description": "pick up a new parking pass",
       "date": "2019-05-01",
       "userId": "2",
       "id": 5
+    },
+    {
+      "title": "pet food",
+      "description": "Pick up food for furry friends",
+      "date": "2019-05-02",
+      "userId": "2",
+      "id": 6
+    },
+    {
+      "title": "Caffeinate!",
+      "description": "go buy coffee",
+      "date": "2019-05-20",
+      "userId": "2",
+      "id": 7
+    },
+    {
+      "title": "Get a haircut",
+      "description": "Schedule an appointment for a hair cut",
+      "date": "2019-05-30",
+      "userId": "2",
+      "id": 8
     }
   ],
   "plans": [
