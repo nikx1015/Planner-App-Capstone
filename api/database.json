@@ -11,8 +11,35 @@
       "id": 2
     }
   ],
-  "lists": [],
-  "listItems": [],
+  "lists": [
+    {
+      "name": "New list 4-23",
+      "userId": "2",
+      "id": 1
+    },
+    {
+      "name": "List 4-232",
+      "userId": "2",
+      "id": 2
+    }
+  ],
+  "listItems": [
+    {
+      "item": "I'm 4-23 item",
+      "listId": 1,
+      "id": 1
+    },
+    {
+      "item": "I'm 4-23 item 2",
+      "listId": 1,
+      "id": 2
+    },
+    {
+      "item": "List 4-23-2 item",
+      "listId": 2,
+      "id": 3
+    }
+  ],
   "notes": [
     {
       "id": 1,
