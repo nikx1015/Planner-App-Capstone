@@ -175,7 +175,7 @@ class ApplicationViews extends Component {
                 <Route exact path="/callback" component={Callback} />
 
                 <Route exact path="/" render={(props) => {
-                    return <Plans {...props} plans={this.state.plans} calendar={this.state.Calendar}/>
+                    return <Plans {...props} plans={this.state.plans} calendar={this.state.calendar}/>
                 }} />
                 <Route exact path="/plans/new" render={(props) => {
                     return <PlanForm {...props} postPlan={this.postPlan} plans={this.state.plans} />

@@ -9,9 +9,10 @@ export default class List extends Component {
         return (
             <React.Fragment>
 <section className="list">
-{this.props.lists.map(list => {
-    if (list.userId === sessionStorage.getItem('credentials')) {
-    return (
+{this.props.lists.map(list =>
+    //{
+    // if (list.userId === sessionStorage.getItem('credentials')) {
+    // return (
     <div key={list.id} className="lists">
     <section className="lists">
     <div className="list-body">
@@ -32,7 +33,7 @@ export default class List extends Component {
     </div>
 
     )}
-    })}
+    {/* })} */}
     <div className="listButton">
 <Button variant="outline-dark" type="submit"
                             onClick={() => {
