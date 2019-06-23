@@ -117,8 +117,8 @@ class ApplicationViews extends Component {
                 })
             });
     };
-    completeList = (listObject, listId) => {
-        return ListManager.completeList(listObject, listId)
+    completeListItem = (itemObject, itemId) => {
+        return ListItemManager.completeListItem(itemObject, itemId)
             .then(() => ListManager.getAllLists())
             .then(lists => this.setState({
                 lists: lists
@@ -174,9 +174,9 @@ class ApplicationViews extends Component {
             <div className="container-div">
                 <Route exact path="/callback" component={Callback} />
 
-                {/* <Route exact path="/" render={(props) => {
-                    return <Plans {...props} plans={this.state.plans} />
-                }} /> */}
+                <Route exact path="/" render={(props) => {
+                    return <Plans {...props} plans={this.state.plans} calendar={this.state.calendar}/>
+                }} />
                 <Route exact path="/plans/new" render={(props) => {
                     return <PlanForm {...props} postPlan={this.postPlan} plans={this.state.plans} />
                 }} />
@@ -185,7 +185,8 @@ class ApplicationViews extends Component {
                     path="/plans"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <Plans {...props} plans={this.state.plans} calendar={this.state.Calendar}/>;
+                            return <Plans {...props} plans={this.state.plans} calendar={this.state.calendar}
+                            />;
                         } else {
                             Auth0Client.signIn();
                             return null;
@@ -218,7 +219,7 @@ class ApplicationViews extends Component {
                     path="/lists"
                     render={props => {
                         if (Auth0Client.isAuthenticated()) {
-                            return <List {...props} lists={this.state.lists} listItems={this.state.listItems}
+                            return <List {...props} lists={this.state.lists} listItems={this.state.listItems} completeListItem={this.completeListItem}
                             />;
                         } else {
                             Auth0Client.signIn();
@@ -231,7 +232,7 @@ class ApplicationViews extends Component {
                     path="/listItems"
                     render={props => {
 
-                            return <ListItems {...props} lists={this.state.lists} listItems={this.state.listItems}
+                            return <ListItems {...props} lists={this.state.lists} listItems={this.state.listItems} completeListItem={this.completeListItem}
                             />;
                     }}
                 />
@@ -250,7 +251,7 @@ class ApplicationViews extends Component {
                             return (
                                 <EditListItems
                                     {...props}
-                                    updateListItem={this.updateListItem} listItems={this.state.listItems} lists={this.state.lists}
+                                    updateListItem={this.updateListItem} listItems={this.state.listItems} lists={this.state.lists} completeListItem={this.completeListItem}
                                 />
                             )
                         } else {
@@ -278,7 +279,7 @@ class ApplicationViews extends Component {
                 />
                 <Route exact path="/lists/:listId(\d+)" render={(props) => {
 
-                    return (<ListDetail {...props} deleteList={this.deleteList} lists={this.state.lists} updateList={this.updateList} listItems={this.state.listItems} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem}/>
+                    return (<ListDetail {...props} deleteList={this.deleteList} lists={this.state.lists} updateList={this.updateList} listItems={this.state.listItems} deleteListItem={this.deleteListItem} updateListItem={this.updateListItem} completeListItem={this.completeListItem}/>
                     )
                 }} />
                 <Route
@@ -312,6 +313,7 @@ class ApplicationViews extends Component {
                             {...props}
                             // news={this.state.news}
                             updateNote={this.updateNote}
+                            notes={this.state.notes}
                         />
                         )
 
@@ -321,7 +323,7 @@ class ApplicationViews extends Component {
                     exact
                     path="/listItems/:listId/new"
                     render={props => {
-                        return <ListItemForm {...props} lists={this.state.lists} addListItem={this.addListItem} listItems={this.state.listItems} />;
+                        return <ListItemForm {...props} lists={this.state.lists} addListItem={this.addListItem} listItems={this.state.listItems} completeListItem={this.completeListItem}/>;
                     }}
                 />
 

@@ -11,7 +11,7 @@ const NotesManager = {
         return fetch(`http://localhost:5002/notes/${id}`, {
           method: "DELETE"
         })
-          .then(() => fetch(`http://localhost:5002/notes`))
+          .then(() => fetch("http://localhost:5002/notes"))
           .then(e => e.json());
       },
     postNote(newNote) {

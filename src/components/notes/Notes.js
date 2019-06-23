@@ -30,13 +30,14 @@ class Notes extends Component {
 
                             <div key={notes.id} className="notes-card">
                                 <div className="notes-card-body">
-                                    <h5 className="notes-card-title">
-                                        {notes.title}
-                                        <br />
-                                        {notes.date}
+                                    <h4 className="notes-card-title">
+                                        {notes.title}</h4>
 
-                                        <Link className="nav-link" to={`/notes/${notes.id}`}>Details</Link>
+                                       <h5 className="notes-card-body"> {notes.date}
+                                       <br />
 
+                                        <p className="notes-link"><Link className="nav-link" to={`/notes/${notes.id}`}>Details</Link>
+</p>
                                     </h5>
                                 </div>
                             </div>

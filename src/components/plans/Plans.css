@@ -1,23 +1,54 @@
 .plans {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.sort-plans {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .plans-card {
     width: 10rem;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    font-weight: lighter;
+    margin: 1rem;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 .plans-card-title {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    font-weight: lighter;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
-
+.plans-card-body {
+    align-content: center;
+    align-items: center;
+    font-weight: lighter;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
 .plans-card-link {
     margin: 12px 0 0 0;
     font-size: 0.7em;
 }
-.plansButton {
+/* .plansButton {
     display: flex;
     justify-content: space-evenly;
+  } */
+  .plans-link {
+      border-top: 1px solid gray;
+      text-transform: uppercase;
+      font-weight: bold;
   }

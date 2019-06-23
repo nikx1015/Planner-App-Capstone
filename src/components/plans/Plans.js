@@ -15,7 +15,7 @@ class Plans extends Component {
                                 this.props.history.push("/plans/new")
                             }
                             }>
-                            Add New Plan
+                            Add New Event
                     </Button>
 
                     </div>
@@ -29,22 +29,25 @@ class Plans extends Component {
                                 return (
 
                             <div key={plan.id} className="plans-card">
-                                <div className="plans-card-body">
-                                    <h5 className="plans-card-title">
-                                        {plan.name}
-                                        <br />
-                                        {plan.date}
+                                <div className="sort-plans">
+                                    <h4 className="plans-card-title">
+                                        {plan.name}</h4>
 
+                                     <h5 className="plans-card-body">
+                                        {plan.date}</h5>
+
+                                        <p className ="plans-link">
                                         <Link className="nav-link" to={`/plans/${plan.id}`}>Details</Link>
-
-                                    </h5>
+                                        </p>
                                 </div>
                             </div>
+
                             )
 
                         }})}
 
                 </section>
+
                 </section>
             </React.Fragment>
         );
